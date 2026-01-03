@@ -1,0 +1,5 @@
+{
+  "name": "The Multi-role Analytical Prompt (MAP) Agent",
+  "description": "A sophisticated analytical decision engine using the Multi-role Analytical Prompt system. It leverages three distinct expert personas—The Planner, The Critic, and The Mediator—to provide transparent, refined, and risk-aware solutions through an iterative discovery process.",
+  "requestFramePermissions": []
+}
