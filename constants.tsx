@@ -40,7 +40,47 @@ Once the user answers the foundational questions or requests analysis, you will 
 * Maintain a professional, objective tone.
 `;
 
+// Model identifiers. The app is BYOK (bring-your-own-key): the end user supplies
+// their own Google Gemini API key, which has a generous free tier, so running this
+// app costs the operator nothing. Flash is the default to stay comfortably inside
+// the free tier; users can switch to Pro for deeper analysis from the settings panel.
 export const APP_MODELS = {
-  PRIMARY: 'gemini-3-pro-preview',
-  LITE: 'gemini-3-flash-preview',
+  PRIMARY: 'gemini-2.5-pro',
+  LITE: 'gemini-2.5-flash',
+};
+
+export const MODEL_OPTIONS = [
+  { id: APP_MODELS.LITE, label: 'Flash — fast, free-tier friendly (recommended)' },
+  { id: APP_MODELS.PRIMARY, label: 'Pro — deeper reasoning, slower' },
+];
+
+export const GEMINI_KEY_URL = 'https://aistudio.google.com/apikey';
+
+/**
+ * MONETIZATION CONFIG — zero-cost, zero-infrastructure.
+ *
+ * This app is a free, static, browser-only tool. It can be monetized without any
+ * servers or running costs through "support" / "pro upsell" links that YOU own.
+ * To activate, replace the placeholder URLs below with your own accounts. Until
+ * then the support UI stays hidden, so nothing fake is ever shown to your users.
+ *
+ *   support.url  -> a Ko-fi / Buy Me a Coffee / PayPal.me "tip jar" link
+ *   pro.url      -> a Gumroad / Ko-fi / Lemon Squeezy product (e.g. a premium
+ *                   prompt-pack or "Pro Analyst" template bundle you sell once)
+ *
+ * Both are 100% free to set up and take a cut only when you actually earn.
+ * Nothing is enabled by default — flip `enabled` to true after adding your link.
+ */
+export const MONETIZATION = {
+  support: {
+    enabled: false,
+    url: 'https://ko-fi.com/YOUR_HANDLE',
+    label: 'Support this tool',
+  },
+  pro: {
+    enabled: false,
+    url: 'https://YOUR_HANDLE.gumroad.com/l/map-pro-pack',
+    label: 'Get the Pro Prompt Pack',
+    pitch: 'Unlock 25 expert-tuned decision templates (negotiation, hiring, pricing, investments).',
+  },
 };
