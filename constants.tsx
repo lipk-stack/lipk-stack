@@ -57,6 +57,81 @@ export const MODEL_OPTIONS = [
 export const GEMINI_KEY_URL = 'https://aistudio.google.com/apikey';
 
 /**
+ * Free decision templates shown on the start screen. Each one seeds the input
+ * with a well-formed decision statement so the Discovery phase starts strong.
+ * They also double as the free teaser for a paid "Pro prompt pack" (see
+ * MONETIZATION.pro below).
+ */
+export interface DecisionTemplate {
+  icon: string;
+  title: string;
+  prompt: string;
+}
+
+export const DECISION_TEMPLATES: DecisionTemplate[] = [
+  {
+    icon: 'fa-briefcase',
+    title: 'Career change',
+    prompt: 'I am considering changing careers into a different field. Help me decide whether to make the switch and how.',
+  },
+  {
+    icon: 'fa-scale-balanced',
+    title: 'Job offer vs staying',
+    prompt: 'I have received a new job offer. Help me decide between accepting it and staying in my current role.',
+  },
+  {
+    icon: 'fa-laptop-house',
+    title: 'Freelance vs full-time',
+    prompt: 'Should I leave my full-time job to freelance or consult independently?',
+  },
+  {
+    icon: 'fa-rocket',
+    title: 'Start a business',
+    prompt: 'I want to launch a small business or side project. Help me decide whether to start, and what the first steps should be.',
+  },
+  {
+    icon: 'fa-tag',
+    title: 'Pricing decision',
+    prompt: 'How should I price my product or service? Help me choose a pricing model and a starting price.',
+  },
+  {
+    icon: 'fa-user-plus',
+    title: 'First hire',
+    prompt: 'Should I hire my first employee or contractor now, or wait? Help me decide.',
+  },
+  {
+    icon: 'fa-screwdriver-wrench',
+    title: 'Build vs buy',
+    prompt: 'Should we build this software capability in-house or buy an existing solution?',
+  },
+  {
+    icon: 'fa-plane-departure',
+    title: 'Relocation',
+    prompt: 'I am considering relocating to another city or country. Help me weigh whether to move.',
+  },
+  {
+    icon: 'fa-house',
+    title: 'Buy vs rent a home',
+    prompt: 'Should I buy a home or keep renting in my current situation?',
+  },
+  {
+    icon: 'fa-graduation-cap',
+    title: 'Back to school',
+    prompt: 'Is going back to school for a degree or certification worth it for me right now?',
+  },
+  {
+    icon: 'fa-chart-line',
+    title: 'Savings allocation',
+    prompt: 'Help me decide how to allocate my savings between different investment options, given my goals and risk tolerance.',
+  },
+  {
+    icon: 'fa-bullhorn',
+    title: 'Marketing channel',
+    prompt: 'Which marketing channel should my business focus on first to acquire customers?',
+  },
+];
+
+/**
  * MONETIZATION CONFIG — zero-cost, zero-infrastructure.
  *
  * This app is a free, static, browser-only tool. It can be monetized without any

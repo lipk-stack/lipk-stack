@@ -10,6 +10,11 @@ then analyzes the decision through three expert lenses:
 
 It runs entirely in the browser on top of Google's Gemini API.
 
+**Features:** 12 ready-made decision templates (career, pricing, hiring,
+build-vs-buy, …) · copy or download any analysis as Markdown · shareable links
+that re-open the app with a decision pre-filled (`#d=…`, no backend involved) ·
+session persistence · BYOK privacy.
+
 ---
 
 ## Why this costs nothing to run

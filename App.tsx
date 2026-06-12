@@ -6,6 +6,9 @@ import { Message, AppState } from './types';
 import { ExpertResponse } from './components/ExpertResponse';
 import { SettingsModal } from './components/SettingsModal';
 import { SupportButton, ProUpsell } from './components/SupportBar';
+import { AnalysisToolbar } from './components/AnalysisToolbar';
+import { TemplateGallery } from './components/TemplateGallery';
+import { readSharedPrompt } from './services/share';
 
 const isAnalysisText = (t: string) => {
   const lower = t.toLowerCase();
@@ -30,11 +33,15 @@ const App: React.FC = () => {
     const savedKey = storage.getApiKey();
     const saved = storage.loadSession();
     if (savedKey) {
-      gemini.init(saved);
+      void gemini.init(saved);
       setHasKey(true);
     } else {
       setShowSettings(true);
     }
+    // A shared link (#d=...) pre-fills the decision so the recipient can run
+    // the same analysis themselves.
+    const shared = readSharedPrompt();
+    if (shared) setInputValue(shared);
     if (saved.length > 0) {
       const lastAnalysis = saved.some((m) => m.isAnalysis);
       setState((prev) => ({
@@ -61,7 +68,7 @@ const App: React.FC = () => {
     storage.setApiKey(key);
     storage.setModel(selectedModel);
     setModel(selectedModel);
-    gemini.init(state.messages);
+    void gemini.init(state.messages);
     setHasKey(true);
     setShowSettings(false);
   };
@@ -226,20 +233,7 @@ const App: React.FC = () => {
                   Welcome. I will act as a Planner, Critic, and Mediator.
                   To begin, share your situation and I will ask concise foundational questions to build context.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full mt-4">
-                  <button
-                    onClick={() => { setInputValue('Should I transition my career to renewable energy consulting?'); }}
-                    className="p-4 rounded-xl glass border border-slate-700 hover:border-indigo-500/50 text-left text-sm transition-all hover:bg-slate-800"
-                  >
-                    "Career transition advice"
-                  </button>
-                  <button
-                    onClick={() => { setInputValue('Evaluate the expansion of my bakery into a second location.'); }}
-                    className="p-4 rounded-xl glass border border-slate-700 hover:border-indigo-500/50 text-left text-sm transition-all hover:bg-slate-800"
-                  >
-                    "Business expansion analysis"
-                  </button>
-                </div>
+                <TemplateGallery onPick={setInputValue} />
               </div>
             )}
 
@@ -251,7 +245,13 @@ const App: React.FC = () => {
                     : msg.isAnalysis ? 'w-full max-w-none' : 'glass border-slate-700/50 text-slate-200'
                 }`}>
                   {msg.isAnalysis ? (
-                    <ExpertResponse content={msg.text} />
+                    <>
+                      <ExpertResponse content={msg.text} />
+                      <AnalysisToolbar
+                        question={state.messages.find((m) => m.role === 'user')?.text || 'My decision'}
+                        analysis={msg.text}
+                      />
+                    </>
                   ) : (
                     <div className="flex gap-3">
                       {msg.role === 'model' && (
