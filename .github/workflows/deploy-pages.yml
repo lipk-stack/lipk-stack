@@ -1,0 +1,44 @@
+name: Deploy free tools to GitHub Pages
+
+# Publishes the static site in ./projects to GitHub Pages for free.
+# After the first successful run, enable Pages in repo Settings → Pages
+# (Source: "GitHub Actions"). The live URL will be:
+#   https://lipk-stack.github.io/lipk-stack/
+
+on:
+  push:
+    branches: [main, claude/festive-ramanujan-guwaz5]
+    paths: ["projects/**", ".github/workflows/deploy-pages.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact (./projects)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./projects
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

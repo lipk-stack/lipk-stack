@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InvoiceLite — Free Online Invoice &amp; Quote Generator (PDF, no signup)</title>
+  <meta name="description" content="Create professional invoices and quotes in your browser and download them as PDF. 100% free, no sign-up, your data never leaves your device." />
+  <meta name="theme-color" content="#0d9488" />
+  <!-- Open Graph for shareability -->
+  <meta property="og:title" content="InvoiceLite — Free Invoice & Quote Generator" />
+  <meta property="og:description" content="Make a professional invoice in 60 seconds. Free, no signup, exports to PDF." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <div class="brand">
+      <span class="logo">🧾</span>
+      <div>
+        <strong>InvoiceLite</strong>
+        <span class="tag">Free invoice &amp; quote generator</span>
+      </div>
+    </div>
+    <nav class="actions">
+      <button id="loadSample" class="btn ghost" type="button">Load sample</button>
+      <button id="resetBtn" class="btn ghost" type="button">Reset</button>
+      <button id="printBtn" class="btn primary" type="button">Download PDF</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <!-- ===== EDITOR ===== -->
+    <section class="editor no-print" aria-label="Invoice editor">
+      <div class="card">
+        <h2>Document</h2>
+        <div class="grid2">
+          <label>Type
+            <select id="docType">
+              <option value="INVOICE">Invoice</option>
+              <option value="QUOTE">Quote / Estimate</option>
+              <option value="RECEIPT">Receipt</option>
+            </select>
+          </label>
+          <label>Currency
+            <select id="currency">
+              <option value="$">$ USD</option>
+              <option value="€">€ EUR</option>
+              <option value="£">£ GBP</option>
+              <option value="RM">RM MYR</option>
+              <option value="₹">₹ INR</option>
+              <option value="¥">¥ JPY</option>
+              <option value="A$">A$ AUD</option>
+              <option value="C$">C$ CAD</option>
+              <option value="S$">S$ SGD</option>
+            </select>
+          </label>
+          <label>Number <input id="invNumber" type="text" placeholder="INV-0001" /></label>
+          <label>Date <input id="invDate" type="date" /></label>
+          <label>Due date <input id="dueDate" type="date" /></label>
+          <label>Accent color <input id="accent" type="color" value="#0d9488" /></label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>From (you)</h2>
+        <textarea id="from" rows="4" placeholder="Your Business Name&#10;123 Street&#10;City, Country&#10;you@email.com"></textarea>
+      </div>
+
+      <div class="card">
+        <h2>Bill to (client)</h2>
+        <textarea id="to" rows="4" placeholder="Client Name&#10;Company&#10;Address&#10;client@email.com"></textarea>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h2>Items</h2>
+          <button id="addItem" class="btn small" type="button">+ Add item</button>
+        </div>
+        <div id="items" class="items"></div>
+      </div>
+
+      <div class="card">
+        <h2>Totals &amp; notes</h2>
+        <div class="grid2">
+          <label>Tax %<input id="taxRate" type="number" min="0" step="0.01" value="0" /></label>
+          <label>Discount (flat)<input id="discount" type="number" min="0" step="0.01" value="0" /></label>
+        </div>
+        <label>Notes / payment terms
+          <textarea id="notes" rows="3" placeholder="Payment due within 14 days. Bank: ...&#10;Thank you for your business!"></textarea>
+        </label>
+      </div>
+
+      <p class="privacy">🔒 Everything runs in your browser. Your data is saved only on this device (localStorage) and is never uploaded.</p>
+    </section>
+
+    <!-- ===== PREVIEW (this is what prints) ===== -->
+    <section class="preview-wrap" aria-label="Invoice preview">
+      <article id="paper" class="paper">
+        <div class="paper-top">
+          <div class="paper-from">
+            <h1 id="pTitle">INVOICE</h1>
+            <pre id="pFrom" class="muted"></pre>
+          </div>
+          <div class="paper-meta">
+            <div><span>Number</span><b id="pNumber"></b></div>
+            <div><span>Date</span><b id="pDate"></b></div>
+            <div id="pDueRow"><span>Due</span><b id="pDue"></b></div>
+          </div>
+        </div>
+
+        <div class="paper-billto">
+          <span class="lbl">BILL TO</span>
+          <pre id="pTo"></pre>
+        </div>
+
+        <table class="paper-table">
+          <thead>
+            <tr><th>Description</th><th class="num">Qty</th><th class="num">Rate</th><th class="num">Amount</th></tr>
+          </thead>
+          <tbody id="pItems"></tbody>
+        </table>
+
+        <div class="paper-totals">
+          <div class="row"><span>Subtotal</span><b id="pSubtotal"></b></div>
+          <div class="row" id="pDiscRow"><span>Discount</span><b id="pDiscount"></b></div>
+          <div class="row" id="pTaxRow"><span id="pTaxLbl">Tax</span><b id="pTax"></b></div>
+          <div class="row grand"><span>Total</span><b id="pTotal"></b></div>
+        </div>
+
+        <div id="pNotesWrap" class="paper-notes">
+          <span class="lbl">NOTES</span>
+          <pre id="pNotes"></pre>
+        </div>
+
+        <div class="paper-foot" id="pFoot">Made with InvoiceLite — free invoice generator</div>
+      </article>
+    </section>
+
+    <!-- ===== MONETIZATION / SUPPORT RAIL (populated from config.js) ===== -->
+    <aside id="supportRail" class="support no-print" hidden>
+      <div class="card">
+        <h2>Support &amp; upgrades</h2>
+        <div id="proSlot"></div>
+        <div id="tipSlot"></div>
+        <div id="affSlot"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="sitefoot no-print">
+    <a href="../index.html">← All free tools</a>
+    <span>·</span>
+    <span>No sign-up · No tracking · Open source</span>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
