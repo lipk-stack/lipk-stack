@@ -1,0 +1,67 @@
+/* Shared styles for the Free Tools collection.
+   Kept tiny and dependency-free so every tool loads instantly. */
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --panel-2: #172033;
+  --line: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #0d9488;
+  --accent-2: #14b8a6;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.5; }
+a { color: var(--accent-2); }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: .9rem 1.2rem; border-bottom: 1px solid var(--line);
+  background: var(--panel-2); flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: inherit; }
+.brand .logo { font-size: 1.6rem; }
+.brand strong { display: block; font-size: 1.05rem; }
+.brand .tag { font-size: .78rem; color: var(--muted); }
+.crumbs { font-size: .82rem; color: var(--muted); }
+.crumbs a { color: var(--muted); text-decoration: none; }
+.crumbs a:hover { color: var(--accent-2); }
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 1.6rem 1.2rem 3rem; }
+h1 { font-size: 1.7rem; margin: .2rem 0 .4rem; }
+.lead { color: var(--muted); margin: 0 0 1.4rem; }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 1.2rem; margin-bottom: 1.2rem; }
+label { display: block; font-size: .85rem; color: var(--muted); margin-bottom: .9rem; }
+label span.req { color: var(--accent-2); }
+input[type=text], input[type=number], input[type=range], select, textarea {
+  width: 100%; margin-top: .3rem; padding: .55rem .65rem; border-radius: 9px;
+  border: 1px solid var(--line); background: var(--panel-2); color: var(--text); font: inherit;
+}
+input[type=range] { padding: 0; }
+.row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.row > * { flex: 1 1 160px; }
+
+.btn { cursor: pointer; border: 1px solid var(--line); background: var(--panel-2); color: var(--text);
+  padding: .55rem 1rem; border-radius: 9px; font: inherit; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.btn.primary:hover { background: var(--accent-2); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.dropzone { border: 2px dashed var(--line); border-radius: 14px; padding: 2.4rem 1rem; text-align: center;
+  color: var(--muted); cursor: pointer; transition: .15s; }
+.dropzone.drag, .dropzone:hover { border-color: var(--accent); color: var(--text); background: var(--panel-2); }
+
+/* Monetization support rail (rendered by support.js from each tool's config) */
+.support { margin: 1.4rem 0 0; display: grid; gap: .6rem; }
+.support a { display: block; text-decoration: none; padding: .7rem .9rem; border-radius: 10px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--text); font-size: .92rem; }
+.support a.pro { border-color: var(--accent); }
+.support a:hover { border-color: var(--accent-2); }
+.support h3 { font-size: .72rem; letter-spacing: .06em; color: var(--muted); margin: .4rem 0 0; }
+
+.sitefoot { text-align: center; color: #64748b; padding: 2rem 1rem; font-size: .85rem; }
+.sitefoot a { color: var(--accent); text-decoration: none; }
+.muted { color: var(--muted); }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }

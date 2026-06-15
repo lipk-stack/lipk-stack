@@ -43,3 +43,58 @@ should be claimed before that.
   all client-side, all monetizable the same way) to grow traffic surface.
 - Add SEO content pages + sitemap; submit to Google Search Console.
 - Measure: once Pages + tip/Pro are live, traffic is the only remaining lever.
+
+---
+
+## Day 2 — 2026-06-15 — Two new tools + SEO + deploy fix
+
+**Status check on Day 1**
+- The Pages deploy from Day 1 **failed** at the "Setup Pages" step (run #1,
+  branch guwaz5). That step fails when Pages isn't enabled in repo settings —
+  i.e. the owner's one-time setup hasn't been done yet, so the site is **not
+  live** (URL returns 403). `config.js` is still unmonetized (expected).
+
+**What shipped today** (branch `claude/festive-ramanujan-7z4bqu`, built on Day 1)
+- **Image Compressor & Resizer** (`projects/image-compressor/`) — drag-drop
+  JPG/PNG/WebP, quality slider, max-width resize, per-file size savings, batch
+  download. 100% client-side via Canvas; nothing is uploaded. High search volume
+  ("compress image", "resize image") + privacy angle as the differentiator.
+- **Strong Password Generator** (`projects/password-generator/`) — crypto-secure
+  (`crypto.getRandomValues` + unbiased rejection sampling), char & passphrase
+  modes, entropy/strength meter, copy button. Password-manager/VPN affiliates are
+  among the highest-paying programs, making this a strong monetization surface.
+- **Shared assets** (`projects/assets/`) — `site.css` (common look) and
+  `support.js` (one monetization-rail renderer driven by each tool's `config.js`),
+  so every future tool gets tip/Pro/affiliate slots for free.
+- **SEO** — `sitemap.xml` + `robots.txt`, canonical + OpenGraph tags on each tool,
+  and the portfolio landing page (`projects/index.html`) now features all 3 tools.
+- **Deploy hardening** — `deploy-pages.yml` now sets `enablement: true` (asks
+  GitHub to auto-provision Pages so the deploy stops hard-failing) and added this
+  branch to the trigger list.
+
+**Verified**
+- `node --check` passes on all new JS.
+- Password generator logic: 8/8 unit assertions pass (length, class coverage,
+  look-alike exclusion, digits-only, 100/100 uniqueness, full-alphabet coverage
+  over 5000 draws, passphrase shape, entropy monotonicity). Tested via a `.cjs`
+  copy because the repo-root `package.json` sets `"type": "module"`.
+
+**Status of "money earned": still $0.** Nothing can be claimed before the owner's
+one-time setup. The blocker is unchanged from Day 1 and is the critical path.
+
+**👉 Owner actions to make this live + earning (≈15 min, all free):**
+1. **Make the repo public** (Settings → General → Danger Zone). A free GitHub plan
+   only serves Pages from public repos — without this the site 404s even when the
+   workflow succeeds.
+2. **Merge this branch to `main`** (or tell me to) so the deploy runs from main.
+3. Confirm Pages is on (Settings → Pages → Source: "GitHub Actions"). With
+   `enablement: true` the workflow should provision it on the next run.
+4. Add a Ko-fi/Buy-Me-a-Coffee URL to each tool's `config.js` (`tipUrl`); optional
+   Gumroad `proUrl`; optional affiliate links (password manager / cloud storage).
+5. Share the live links where the audience asks (r/freelance for InvoiceLite,
+   r/webdev / AlternativeTo for the image + password tools).
+
+**Next iterations (planned)**
+- Day 3: add a QR-code generator and/or a unit/percentage/loan calculator
+  (same client-side + shared-config pattern), and a short SEO article per tool.
+- Once the repo is public + Pages live, focus shifts entirely to traffic.
