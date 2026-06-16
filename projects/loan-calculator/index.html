@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loan & Mortgage Calculator — Free Monthly Payment & Amortization</title>
+  <meta name="description" content="Free loan and mortgage calculator. See your monthly payment, total interest, payoff time and full amortization schedule. Works in your browser — nothing is uploaded." />
+  <meta name="theme-color" content="#0d9488" />
+  <meta property="og:title" content="Loan & Mortgage Calculator — Free & Private" />
+  <meta property="og:description" content="Monthly payment, total interest and amortization schedule. 100% in your browser, no signup." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/loan-calculator/" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <style>
+    .stat { display:flex; justify-content:space-between; padding:.55rem .2rem; border-bottom:1px solid var(--line); }
+    .stat:last-child { border-bottom:0; }
+    .stat span { color:var(--muted); font-size:.9rem; }
+    .stat strong { font-size:1.05rem; }
+    table { width:100%; border-collapse:collapse; font-size:.86rem; }
+    th, td { text-align:right; padding:.4rem .5rem; border-bottom:1px solid var(--line); }
+    th:first-child, td:first-child { text-align:left; }
+    thead th { color:var(--muted); font-weight:600; position:sticky; top:0; background:var(--panel); }
+    .scroll { max-height:360px; overflow:auto; border:1px solid var(--line); border-radius:10px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="logo">🏦</span>
+      <div>
+        <strong>Loan &amp; Mortgage Calculator</strong>
+        <span class="tag">Payments &amp; amortization, computed on your device</span>
+      </div>
+    </a>
+    <nav class="crumbs"><a href="../index.html">← All free tools</a></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Loan &amp; mortgage calculator</h1>
+    <p class="lead">Work out your <strong>monthly payment</strong>, total interest and payoff time for
+      any loan or mortgage — with a full amortization schedule. Everything is calculated in your
+      browser; <strong>nothing is sent anywhere</strong>.</p>
+
+    <div class="card">
+      <div class="row">
+        <label>Loan amount
+          <input id="amount" type="number" min="0" step="any" value="250000" />
+        </label>
+        <label>Annual interest rate (%)
+          <input id="rate" type="number" min="0" step="any" value="6.5" />
+        </label>
+      </div>
+      <div class="row" style="margin-top:.4rem;">
+        <label>Term (years)
+          <input id="years" type="number" min="0" step="any" value="30" />
+        </label>
+        <label>Extra monthly payment (optional)
+          <input id="extra" type="number" min="0" step="any" value="0" />
+        </label>
+        <label>Currency
+          <select id="currency">
+            <option>USD</option><option>EUR</option><option>GBP</option>
+            <option>JPY</option><option>AUD</option><option>CAD</option>
+            <option>SGD</option><option>INR</option><option>MYR</option>
+          </select>
+        </label>
+      </div>
+    </div>
+
+    <div class="card" id="summary"></div>
+
+    <div class="card" id="schedWrap" hidden>
+      <h2 style="font-size:1.1rem; margin:0 0 .8rem;">Amortization schedule</h2>
+      <p class="muted" style="font-size:.85rem; margin:0 0 .8rem;">
+        First year shown month-by-month, then year-end balances. Paying a little extra each month
+        shortens the term and cuts total interest — try the “Extra monthly payment” field above.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>#</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead>
+          <tbody id="schedBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="supportRail" class="support" hidden></div>
+
+    <section class="card" style="margin-top:1.6rem;">
+      <h2 style="font-size:1.1rem; margin-top:0;">How is the monthly payment calculated?</h2>
+      <p class="muted" style="font-size:.92rem;">
+        It uses the standard amortizing-loan formula
+        <code>M = P · r / (1 − (1 + r)⁻ⁿ)</code>, where <code>P</code> is the amount borrowed,
+        <code>r</code> is the monthly interest rate (annual rate ÷ 12) and <code>n</code> is the
+        number of monthly payments. Each month, interest is charged on the remaining balance and the
+        rest of your payment reduces the principal — which is what the schedule above shows.
+      </p>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    Part of <a href="../index.html">Free Tools</a> · <a href="https://github.com/lipk-stack/lipk-stack">Source on GitHub</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="../assets/support.js"></script>
+</body>
+</html>

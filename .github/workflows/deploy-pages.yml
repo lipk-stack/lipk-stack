@@ -10,7 +10,7 @@ name: Deploy free tools to GitHub Pages
 
 on:
   push:
-    branches: [main, claude/festive-ramanujan-guwaz5, claude/festive-ramanujan-7z4bqu]
+    branches: [main, claude/festive-ramanujan-guwaz5, claude/festive-ramanujan-7z4bqu, claude/festive-ramanujan-0w0bbj]
     paths: ["projects/**", ".github/workflows/deploy-pages.yml"]
   workflow_dispatch:
 

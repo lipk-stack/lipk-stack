@@ -98,3 +98,59 @@ one-time setup. The blocker is unchanged from Day 1 and is the critical path.
 - Day 3: add a QR-code generator and/or a unit/percentage/loan calculator
   (same client-side + shared-config pattern), and a short SEO article per tool.
 - Once the repo is public + Pages live, focus shifts entirely to traffic.
+
+---
+
+## Day 3 — 2026-06-16 — Loan & Mortgage Calculator + tested math
+
+**Status check on Days 1–2 (verified this run)**
+- Repo is still **private** (`private: true` via the API) and the site still
+  returns **403** — `https://lipk-stack.github.io/lipk-stack/` is **not live**.
+- The Pages deploy is still **failing**: run #2 (branch 7z4bqu) failed in ~10s at
+  "Setup Pages" even with `enablement: true`. On a **free plan a private repo
+  cannot serve Pages at all**, so the enablement call can't succeed until the repo
+  is public. **Making the repo public is the single unblocker** — it is owner-only
+  and cannot be automated. Revenue remains **$0**, which is correct at this stage.
+
+**What shipped today** (branch `claude/festive-ramanujan-0w0bbj`; merged Day 1–2
+work forward into this branch first, then built on top)
+- **Loan & Mortgage Calculator** (`projects/loan-calculator/`) — enter amount,
+  rate, term (+ optional extra monthly payment) to get monthly payment, total
+  interest, payoff time and a full **amortization schedule**, in 9 currencies.
+  100% client-side; nothing uploaded. Personal-finance keywords ("mortgage
+  calculator", "loan payment") have huge search volume and finance/refinance
+  affiliate offers are among the highest-paying — a strong monetization surface.
+- Wired into the shared system: uses `assets/site.css` + `assets/support.js`, has
+  its own `config.js` (tip / Pro / finance-affiliate slots), and is added to the
+  landing page (`projects/index.html`) and `sitemap.xml`.
+- Added `claude/festive-ramanujan-0w0bbj` to the deploy workflow triggers.
+
+**Verified**
+- `node --check` passes on `app.js`.
+- Amortization math is unit-tested: **16/16 assertions pass**
+  (`projects/loan-calculator/app.test.cjs`) — textbook $250k @ 6.5%/30yr ≈
+  $1,580.17 payment, `totalPaid = principal + totalInterest`, full amortization to
+  a zero balance, zero-interest loans, per-row `principal + interest = payment`,
+  monotonic balance, extra-payment savings, rate monotonicity, degenerate inputs.
+  A local `package.json` (`"type":"commonjs"`) scopes the folder so the test runs
+  under the ESM repo root.
+
+**Status of "money earned": still $0.** Unchanged blocker — the owner setup below
+is the critical path, not more tools.
+
+**👉 Owner actions to make this live + earning (≈15 min, all free) — UNCHANGED:**
+1. **Make the repo public** (Settings → General → Danger Zone). This is the one
+   hard blocker: a free plan won't serve Pages from a private repo.
+2. **Merge to `main`** (or approve) so the deploy runs from the default branch.
+3. Confirm Settings → Pages → Source: "GitHub Actions" stuck (enablement should
+   provision it once the repo is public).
+4. Fill each tool's `config.js` `tipUrl` (free Ko-fi/Buy-Me-a-Coffee); optional
+   Gumroad `proUrl`; optional affiliate links.
+5. Share links: r/personalfinance for the loan calculator, r/freelance for
+   InvoiceLite, r/webdev + AlternativeTo for the image + password tools. Submit
+   the sitemap to Google Search Console.
+
+**Next iterations (planned)**
+- Day 4: QR-code generator and/or a short SEO how-to/FAQ article per tool for
+  organic traffic. If the repo is public + Pages live by then, pivot entirely to
+  traffic (content + community posts), the only remaining lever.

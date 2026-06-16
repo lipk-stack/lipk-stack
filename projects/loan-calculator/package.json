@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "description": "Scopes this static tool's JS to CommonJS so the amortization math can be unit-tested with `node app.test.cjs` even though the repo root is an ES module.",
+  "scripts": {
+    "test": "node app.test.cjs"
+  }
+}
