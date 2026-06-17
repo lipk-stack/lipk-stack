@@ -154,3 +154,45 @@ is the critical path, not more tools.
 - Day 4: QR-code generator and/or a short SEO how-to/FAQ article per tool for
   organic traffic. If the repo is public + Pages live by then, pivot entirely to
   traffic (content + community posts), the only remaining lever.
+
+---
+
+## Day 3 follow-up — 2026-06-17 — 🟢 SITE IS LIVE
+
+The owner completed the two manual steps: **made the repo public** and **set
+Settings → Pages → Source: "GitHub Actions"**. After that:
+- Fast-forwarded `main` to include all four tools and pushed (so Pages deploys
+  from the default branch, which the `github-pages` environment allows).
+- Re-ran the deploy: run #4 (attempt 2) is **fully green** — "Setup Pages",
+  "Upload artifact", and "Deploy to GitHub Pages" all succeeded
+  (run id 27688145129, completed 2026-06-17 12:20 UTC).
+
+Root cause of the earlier failures, now resolved: a free plan can't serve Pages
+from a private repo, AND the Actions `GITHUB_TOKEN` is forbidden from *creating*
+the Pages site (`enablement: true` hit "Resource not accessible by integration").
+Enabling Pages once in the Settings UI fixed both — `enablement: true` is now an
+idempotent no-op because the site already exists.
+
+**Live URL (for real visitors):** https://lipk-stack.github.io/lipk-stack/
+(Tools: loan-calculator, image-compressor, password-generator, invoicelite.)
+Note: this build sandbox can't fetch `github.io` (network egress allowlist), so
+the live check is the green Pages deployment, not an in-sandbox curl.
+
+**Money status: still $0 — but now only ONE lever remains, and it's monetization
+setup, not deployment.** The site is live and useful; the support rail is hidden
+until each tool's `config.js` is filled. To switch revenue on (owner, one-time):
+1. Create a free Ko-fi / Buy-Me-a-Coffee page → paste the URL into each tool's
+   `config.js` `tipUrl`.
+2. (Optional, higher value) Affiliate links: a password manager/VPN for the
+   password generator; a refinance/savings/budgeting offer for the loan
+   calculator; cloud storage for the image compressor. Paste into `affiliates`.
+3. (Optional) A small Gumroad product → `proUrl`.
+Then it's purely a traffic game (SEO articles + community posts).
+
+**Next run (Day 4) — START HERE:** the deploy blocker is GONE. Re-verify the site
+is still live and check whether any `config.js` has been filled. If monetized,
+go 100% to traffic: write one short SEO how-to/FAQ page per tool, submit the
+sitemap to Google Search Console, and post the live links in the right
+communities. If not yet monetized, add one new tool (QR generator) and keep
+nudging the owner that filling `config.js` is the only thing between live
+traffic and real payouts.
