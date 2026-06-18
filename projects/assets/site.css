@@ -61,6 +61,17 @@ input[type=range] { padding: 0; }
 .support a:hover { border-color: var(--accent-2); }
 .support h3 { font-size: .72rem; letter-spacing: .06em; color: var(--muted); margin: .4rem 0 0; }
 
+/* Stat tiles (used by the word counter; reusable by future tools) */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); gap: .7rem; margin-bottom: 1.2rem; }
+.stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .8rem .6rem; text-align: center; }
+.stat .num { display: block; font-size: 1.5rem; font-weight: 700; color: var(--accent-2); }
+.stat .lbl { display: block; font-size: .74rem; color: var(--muted); margin-top: .15rem; text-transform: uppercase; letter-spacing: .04em; }
+
+/* Keyword chips */
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip { background: var(--panel-2); border: 1px solid var(--line); border-radius: 999px; padding: .3rem .7rem; font-size: .82rem; }
+.chip strong { color: var(--accent-2); }
+
 .sitefoot { text-align: center; color: #64748b; padding: 2rem 1rem; font-size: .85rem; }
 .sitefoot a { color: var(--accent); text-decoration: none; }
 .muted { color: var(--muted); }

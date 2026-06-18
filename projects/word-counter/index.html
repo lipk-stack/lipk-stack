@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word & Character Counter — Free, Private, In-Browser (no signup)</title>
+  <meta name="description" content="Count words, characters, sentences, paragraphs, reading time and keyword density instantly in your browser. Free, no sign-up, nothing uploaded." />
+  <meta name="theme-color" content="#0d9488" />
+  <meta property="og:title" content="Word & Character Counter — Free & Private" />
+  <meta property="og:description" content="Live word, character, sentence and reading-time counter. Runs entirely in your browser." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/word-counter/" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="logo">📝</span>
+      <div>
+        <strong>Word &amp; Character Counter</strong>
+        <span class="tag">Live counts as you type — on your device</span>
+      </div>
+    </a>
+    <nav class="crumbs"><a href="../index.html">← All free tools</a></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Word &amp; character counter</h1>
+    <p class="lead">Paste or type your text for instant word, character, sentence and
+      reading-time counts. <strong>Nothing is uploaded</strong> — it all runs in your browser
+      and autosaves locally.</p>
+
+    <div class="stats" id="stats">
+      <div class="stat"><span class="num" id="s-words">0</span><span class="lbl">Words</span></div>
+      <div class="stat"><span class="num" id="s-chars">0</span><span class="lbl">Characters</span></div>
+      <div class="stat"><span class="num" id="s-chars-ns">0</span><span class="lbl">No spaces</span></div>
+      <div class="stat"><span class="num" id="s-sentences">0</span><span class="lbl">Sentences</span></div>
+      <div class="stat"><span class="num" id="s-paragraphs">0</span><span class="lbl">Paragraphs</span></div>
+      <div class="stat"><span class="num" id="s-reading">0 sec</span><span class="lbl">Reading time</span></div>
+      <div class="stat"><span class="num" id="s-speaking">0 sec</span><span class="lbl">Speaking time</span></div>
+    </div>
+
+    <div class="card">
+      <textarea id="text" rows="12" placeholder="Start typing or paste your text here…"
+        style="width:100%; resize:vertical; font-size:1rem; line-height:1.5; padding:.9rem;
+        background:var(--panel-2); color:inherit; border:1px solid var(--line); border-radius:10px;"></textarea>
+      <div style="display:flex; gap:.6rem; margin-top:.6rem; flex-wrap:wrap;">
+        <button id="copy" class="btn" type="button">Copy text</button>
+        <button id="clear" class="btn" type="button">Clear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:1.05rem; margin-top:0;">Top keywords <span class="muted" style="font-weight:400;">(density)</span></h2>
+      <div id="keywords" class="chips"><span class="muted">Start typing to see your most-used words.</span></div>
+    </div>
+
+    <div id="supportRail" class="support" hidden></div>
+
+    <section class="card" style="margin-top:1.6rem;">
+      <h2 style="font-size:1.1rem; margin-top:0;">Handy for essays, posts, and limits</h2>
+      <p class="muted" style="font-size:.92rem;">
+        Great for hitting an essay word count, staying under a Twitter/X or meta-description
+        character limit, estimating how long a speech or blog post takes to read, or checking
+        keyword density for SEO. Reading time assumes ~200 words/min; speaking time ~130 words/min.
+        Everything stays on your device — refresh-safe via local autosave, never uploaded.
+      </p>
+      <p class="muted" style="font-size:.92rem;">Not sure how long it should be? See
+        <a href="../guides/ideal-word-counts.html">ideal word counts for essays, blog posts &amp; social posts</a>.</p>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    Part of <a href="../index.html">Free Tools</a> · <a href="https://github.com/lipk-stack/lipk-stack">Source on GitHub</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="../assets/support.js"></script>
+</body>
+</html>

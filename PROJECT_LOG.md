@@ -196,3 +196,76 @@ sitemap to Google Search Console, and post the live links in the right
 communities. If not yet monetized, add one new tool (QR generator) and keep
 nudging the owner that filling `config.js` is the only thing between live
 traffic and real payouts.
+
+---
+
+## Day 4 — 2026-06-18 — Word & Character Counter + first SEO guide
+
+**Status check on Days 1–3 (verified this run via the GitHub API)**
+- Site is **still live**: latest Pages deploy is run #4 on `main`
+  (sha `73174f4`), conclusion **success** (2026-06-17 12:20 UTC). The four prior
+  tools are serving at https://lipk-stack.github.io/lipk-stack/.
+- **Money is still $0.** Checked every tool's `config.js` — all `tipUrl` /
+  `proUrl` / `affiliates` are still empty, so the support rail is correctly
+  hidden and nothing can be earned yet. The blocker is unchanged and owner-only:
+  no payment/affiliate account is connected. This is the entire critical path.
+
+**What shipped today** (branch `claude/festive-ramanujan-agfoc2`, built on the
+live `main` state)
+- **Word & Character Counter** (`projects/word-counter/`) — live counts for
+  words, characters (with/without spaces), sentences, paragraphs, reading time,
+  speaking time and **keyword density**, with local autosave. 100% client-side;
+  nothing uploaded. "Word counter" / "character counter" are very high-volume
+  evergreen searches (students, writers, marketers, social-post limits), and the
+  audience pairs with high-converting writing-tool affiliates (Grammarly /
+  ProWritingAid) — a strong monetization surface. Wired to the shared
+  `assets/site.css` + `assets/support.js` with its own `config.js`.
+- **First SEO content page** (`projects/guides/ideal-word-counts.html`) — an
+  evergreen reference ("ideal word counts for essays, blogs, emails, social")
+  with real platform character limits. It internally links to all five tools to
+  start building organic discovery — traffic is now the main remaining lever, so
+  this begins the content engine the roadmap called for.
+- Wired in: landing page (`projects/index.html`) features the new tool;
+  `sitemap.xml` includes the tool + the guide; the counter links to the guide
+  and vice-versa; new shared `.stats`/`.stat`/`.chips` styles in `site.css`
+  (reusable by future tools); this branch added to the deploy workflow triggers.
+
+**Verified**
+- `node --check` passes on `app.js`.
+- Counting logic is unit-tested: **21/21 assertions pass**
+  (`projects/word-counter/app.test.cjs`) — empty/whitespace input, word counts,
+  Unicode + hyphenated words, multi-space collapsing, sentence detection
+  (incl. grouped `...?!` and unterminated fragments), blank-line paragraph
+  splitting, reading/speaking-time thresholds, and keyword density with
+  stop-word exclusion and frequency ranking. A local `package.json`
+  (`"type":"commonjs"`) scopes the folder under the ESM repo root.
+
+**Status of "money earned": still $0 — and this is correct.** No revenue can or
+should be claimed before the owner connects a payout/affiliate account. More
+tools do not change this; the lever is owner setup + traffic.
+
+**Deploy note:** the four existing tools stay live regardless. To put **today's**
+additions (word counter + guide) on the live site, this branch needs to reach
+`main` — the `github-pages` environment deploys from the default branch. Per this
+run's instructions I pushed only to `claude/festive-ramanujan-agfoc2` and did not
+push to `main`. **Merge `claude/festive-ramanujan-agfoc2` → `main`** (or say the
+word) to publish them.
+
+**👉 Owner actions to turn live traffic into real money (≈15 min, all free) —
+the ONLY thing standing between the live site and payouts:**
+1. Create a free **Ko-fi / Buy-Me-a-Coffee** page → paste the URL into each
+   tool's `config.js` `tipUrl`. (Lowest-friction first dollar.)
+2. **Affiliate links** (highest value): Grammarly/ProWritingAid for the word
+   counter; a password manager/VPN for the password generator; a
+   refinance/high-yield-savings offer for the loan calculator; cloud storage for
+   the image compressor; Wise/Wave for InvoiceLite. Sign-up is free; paste your
+   referral URLs into each `config.js` `affiliates`.
+3. Submit `sitemap.xml` to **Google Search Console** and post the live links
+   where the audience asks (r/writing & r/students for the counter, r/freelance
+   for InvoiceLite, r/personalfinance for the loan calc).
+
+**Next iterations (planned)**
+- Day 5: add a QR-code generator (vendor a small MIT-licensed encoder locally so
+  it's correct + offline) and/or a JSON formatter for the developer audience;
+  write a second SEO guide. If `config.js` gets filled, pivot 100% to traffic
+  (content + community posts + Search Console), the only remaining lever.
