@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Get-Paid Playbook — Get Freelance Invoices Paid Faster</title>
+  <meta name="description" content="Scripts and templates to set payment terms, write invoices that get paid on sight, and chase late payments politely. Free invoice tool included." />
+  <meta name="theme-color" content="#0d9488" />
+  <meta property="og:title" content="The Get-Paid Playbook" />
+  <meta property="og:description" content="Set terms, invoice clearly, and collect late payments without the awkwardness. Copy-paste scripts for freelancers." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/get-paid-playbook/" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="logo">💸</span>
+      <div>
+        <strong>The Get-Paid Playbook</strong>
+        <span class="tag">Get freelance invoices paid faster</span>
+      </div>
+    </a>
+    <nav class="crumbs"><a href="../index.html">← All free tools</a></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>Stop chasing payments. Get paid on time.</h1>
+    <p class="lead">A no-fluff playbook of copy-paste scripts and templates: set payment
+      terms in one message, write invoices that get paid on sight, and collect late
+      invoices politely with a proven 4-email sequence.</p>
+
+    <div id="buyBox" class="card" style="text-align:center;">
+      <!-- Buy button / preview note injected by app.js from config.js -->
+    </div>
+
+    <section class="card">
+      <h2 style="margin-top:0;">What's inside</h2>
+      <ul>
+        <li><strong>The 2-minute terms message</strong> that removes 90% of payment disputes before you start.</li>
+        <li><strong>The "paid-on-sight" invoice checklist</strong> — the 5 details that get invoices paid faster.</li>
+        <li><strong>The 4-email follow-up sequence</strong> — friendly nudge → restatement → firm boundary → final notice, with exact wording.</li>
+        <li><strong>Habits that prevent late payment</strong> — deposits, timing, and frictionless paying.</li>
+        <li><strong>A quick-start checklist</strong> you can run on every project.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Free preview: the follow-up email that collects ~80% of late invoices</h2>
+      <p class="muted" style="font-size:.92rem;">Send this the day after the due date. Assume good faith — most clients simply forgot.</p>
+      <blockquote style="border-left:3px solid var(--accent); margin:0; padding:.4rem 0 .4rem 1rem; color:var(--text);">
+        <strong>Subject:</strong> Invoice #0007 — quick reminder<br><br>
+        Hi [Name], hope you're well! Just a gentle reminder that invoice #0007 for [amount]
+        was due [yesterday/date]. No worries if it's already on its way — if not, here are
+        the payment details again: [link]. Happy to resend the invoice if helpful. Thanks so much!
+      </blockquote>
+      <p class="muted" style="font-size:.92rem; margin-bottom:0;">The full playbook includes the
+        terms-setting script, the invoice checklist, and the three follow-ups after this one.</p>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Make the invoice itself — free</h2>
+      <p>The playbook pairs with a free, private, in-browser invoice generator that produces a
+        clean, paid-on-sight layout and exports to PDF. Nothing is uploaded.</p>
+      <p><a class="btn primary" href="../invoicelite/index.html">Open the free invoice generator →</a></p>
+    </section>
+
+    <div id="supportRail" class="support" hidden></div>
+
+    <section class="card" style="margin-top:1.2rem;">
+      <h2 style="font-size:1.05rem; margin-top:0;">More free tools</h2>
+      <p class="muted" style="font-size:.92rem;">
+        <a href="../invoicelite/index.html">Invoice Generator</a> ·
+        <a href="../word-counter/index.html">Word &amp; Character Counter</a> ·
+        <a href="../loan-calculator/index.html">Loan &amp; Mortgage Calculator</a> ·
+        <a href="../password-generator/index.html">Password Generator</a> ·
+        <a href="../image-compressor/index.html">Image Compressor</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    Part of <a href="../index.html">Free Tools</a> · <a href="https://github.com/lipk-stack/lipk-stack">Source on GitHub</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      var cfg = window.PLAYBOOK_CONFIG || {};
+      var box = document.getElementById("buyBox");
+      // Feed the optional tip jar into the shared support rail (reads TOOL_CONFIG).
+      window.TOOL_CONFIG = {
+        tipLabel: "This guide is free to read — buy me a coffee",
+        tipUrl: cfg.tipUrl || "",
+      };
+      function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+      if (cfg.buyUrl) {
+        box.innerHTML =
+          '<a class="btn primary" style="font-size:1.05rem; padding:.7rem 1.4rem;" href="' +
+          esc(cfg.buyUrl) + '" target="_blank" rel="noopener">' +
+          esc(cfg.priceLabel || "Get the Playbook (PDF)") + '</a>' +
+          '<p class="muted" style="font-size:.85rem; margin:.6rem 0 0;">Instant PDF download. Money-back if it doesn’t help you get paid faster.</p>';
+      } else {
+        box.innerHTML =
+          '<p style="margin:.2rem 0 .6rem; font-weight:600;">📘 The full playbook (PDF) is on the way.</p>' +
+          '<p class="muted" style="font-size:.9rem; margin:0;">For now, use the free preview below and the free invoice generator — they cover the essentials.</p>';
+      }
+    })();
+  </script>
+  <script src="../assets/support.js"></script>
+</body>
+</html>

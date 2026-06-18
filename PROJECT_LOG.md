@@ -269,3 +269,44 @@ the ONLY thing standing between the live site and payouts:**
   it's correct + offline) and/or a JSON formatter for the developer audience;
   write a second SEO guide. If `config.js` gets filled, pivot 100% to traffic
   (content + community posts + Search Console), the only remaining lever.
+
+### Day 4 addendum — new indirect monetization model: a sellable digital product
+
+Prompted to find *other*, indirect ways to convert to money, I added a third
+revenue model on top of tips + affiliates. Tips/affiliates both need a steady
+traffic firehose; a **digital product can earn from a single share**, so it's a
+better fit for a brand-new site with little traffic.
+
+**What shipped**
+- **The Get-Paid Playbook** (`products/get-paid-playbook/playbook.md`) — a
+  ~1,300-word practical guide for freelancers: the 2-minute terms-setting script,
+  a paid-on-sight invoice checklist, and a proven **4-email late-payment
+  follow-up sequence**. This is genuinely sellable content and pairs directly
+  with InvoiceLite's audience (the exact buyers).
+- A formatted copy was created in the owner's **Google Drive** ("The Get-Paid
+  Playbook — sellable product — export to PDF"), ready to export to PDF and
+  upload to Gumroad.
+- **Live sales/funnel page** (`projects/get-paid-playbook/`) — describes the
+  product, shows a free email-preview to build trust, and funnels readers to the
+  free invoice generator. It is **config-driven**: until the owner pastes a
+  Gumroad link into `config.js` `buyUrl`, it shows a "coming soon" note and still
+  earns its keep as SEO content + a funnel. Once `buyUrl` is set, a real Buy
+  button appears automatically. Optional Ko-fi tip jar via the shared rail.
+- Wired into the landing page + `sitemap.xml`. Inline JS + config syntax-checked.
+
+**Why this is the strongest indirect path available right now:** the owner
+already has the matching audience surface (the invoice tool), perceived value is
+high (recovering one late invoice pays for the guide many times over), and the
+same content can be sold *or* used as a free lead magnet to build an email list
+to monetize later.
+
+**Money status: still $0 — and the wall is the same and unavoidable.** Every
+real-money rail (tips, affiliates, product sales, ads, sponsorship, crypto) ends
+at an account tied to the owner's legal identity (bank/KYC). That single signup
+cannot be automated. What changed today is that the owner's one action now
+unlocks *three* models instead of one, and the product model needs only ~5 min
+(export PDF → free Gumroad upload → paste link).
+
+**👉 To turn the product on (≈5 min, free):** Drive → open the playbook → File →
+Download → PDF → create a free Gumroad/Lemon Squeezy product → upload → set price
+($7–15) → paste the link into `projects/get-paid-playbook/config.js` `buyUrl`.
