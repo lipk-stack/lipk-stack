@@ -310,3 +310,75 @@ unlocks *three* models instead of one, and the product model needs only ~5 min
 **👉 To turn the product on (≈5 min, free):** Drive → open the playbook → File →
 Download → PDF → create a free Gumroad/Lemon Squeezy product → upload → set price
 ($7–15) → paste the link into `projects/get-paid-playbook/config.js` `buyUrl`.
+
+---
+
+## Day 5 — 2026-06-19 — Consolidate stranded Day 4 work + JSON Formatter + CI hardening
+
+**Status check (verified this run via the GitHub API + git)**
+- Live site is **healthy**: the last `main` Pages deploy (run #4, sha `73174f4`)
+  is green. The four original tools are serving at
+  https://lipk-stack.github.io/lipk-stack/.
+- **Important finding:** the entire **Day 4** run (Word & Character Counter,
+  the first SEO guide, and the sellable *Get-Paid Playbook* product + funnel) was
+  committed only to branch `claude/festive-ramanujan-agfoc2` and **never merged to
+  `main`** — so it is **built and tested but NOT live**. Its branch Pages runs on
+  2026-06-18 "failed" in ~2s, but that is the **benign** github-pages
+  environment-protection rule (only the default branch may deploy), not a code
+  bug. Two days of shippable work are sitting unpublished.
+- **Money is still $0.** Re-checked every `config.js` — all `tipUrl` / `proUrl` /
+  `affiliates` (and the playbook `buyUrl`) are still empty, so the support rails
+  are correctly hidden and nothing can be earned. The blocker is unchanged and
+  owner-only: no payout/affiliate/product account is connected. That is the whole
+  critical path.
+
+**What shipped today** (branch `claude/festive-ramanujan-358lcq`)
+1. **Recovered the stranded Day 4 work** — fast-forwarded the Day 4 commits into
+   this branch so the Word Counter, SEO guide and Playbook product/funnel are all
+   in one place again, ready to publish. Re-ran their tests: word-counter 21/21,
+   loan 16/16 — all pass.
+2. **NEW TOOL — JSON Formatter & Validator** (`projects/json-formatter/`) —
+   beautify (2/4-space or tab, optional deep key-sort), minify, and validate JSON
+   with the exact syntax error (line & column), plus structure stats (objects /
+   arrays / keys / depth). **Correct by construction** (uses the engine's own
+   `JSON.parse` / `JSON.stringify`) and **private** (nothing uploaded — safe for
+   tokens/customer data, unlike most online JSON tools). "json formatter /
+   validator / beautifier / minify json" are huge evergreen developer searches;
+   the audience pairs with high-converting developer-tool affiliates.
+   - Unit-tested: **34/34 assertions pass** (`projects/json-formatter/app.test.cjs`)
+     — valid/invalid parsing, indent variants, deep key-sort, round-trip,
+     minify, structure stats, and line/column mapping. Wired into the landing
+     page, `sitemap.xml`, and the shared support rail; added `.json-grid` /
+     `.json-status` to `assets/site.css`.
+3. **CI hardening** — rewrote `.github/workflows/deploy-pages.yml` into two jobs:
+   a `validate` job that runs on **every** branch/PR (syntax-checks all tool JS +
+   runs all `*.test.cjs`), and a `deploy` job gated to `main` (`if: github.ref ==
+   'refs/heads/main'`). This **stops the daily false "deploy failed"** noise on
+   feature branches (those failures were only the environment guard) and gives
+   real pass/fail CI on branch work instead. Removed the stale per-branch trigger
+   list.
+
+**Verified**
+- Full local CI gate (what the new `validate` job runs): all tool JS passes
+  `node --check`; **71 assertions pass** total (21 word-counter + 16 loan +
+  34 json-formatter). Zero failures.
+
+**👉 Owner actions — now TWO things, both genuinely new/actionable:**
+1. **Publish the stranded work:** merge `claude/festive-ramanujan-358lcq` → `main`
+   (it contains all of Day 4 + Day 5). That single merge takes the Word Counter,
+   JSON Formatter, SEO guide and the Playbook funnel **live**. Nothing else
+   publishes them — the github-pages environment only deploys from `main`.
+2. **Switch on the first real dollar (≈5 min, free):** the *Get-Paid Playbook* is
+   ready in your Google Drive. File → Download → PDF → create a free
+   Gumroad/Lemon Squeezy product → upload → set $7–15 → paste the link into
+   `projects/get-paid-playbook/config.js` `buyUrl`. A digital product can earn
+   from a single share, so it's the most direct path to a first payout. (Tips +
+   affiliates still just need a Ko-fi URL / referral links in each `config.js`.)
+
+**Next run (Day 6) — START HERE:** re-check whether (a) the branch was merged to
+`main` (did the new tools go live?) and (b) any `config.js`/`buyUrl` got filled
+(= monetized). If live + monetized, go 100% to traffic (submit `sitemap.xml` to
+Google Search Console; one short SEO guide per tool; community posts). If not,
+the message to surface is unchanged and specific: **one merge + one Gumroad
+signup** is the entire distance between five tested, live-ready tools and the
+first real dollar — keep that front-and-centre rather than adding a sixth tool.

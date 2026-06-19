@@ -1,16 +1,19 @@
-name: Deploy free tools to GitHub Pages
+name: Build, test & deploy free tools
 
-# Publishes the static site in ./projects to GitHub Pages for free.
-# The "Setup Pages" step below uses `enablement: true`, which asks GitHub to
-# provision Pages (Source: "GitHub Actions") automatically — so in most cases no
-# manual Settings toggle is needed. The live URL will be:
-#   https://lipk-stack.github.io/lipk-stack/
-# NOTE: A free GitHub plan only serves Pages from a PUBLIC repo. If this repo is
-# private, make it public (Settings → General → Danger Zone) or the site 404s.
+# Two jobs:
+#  - validate: runs on EVERY branch/PR push. Syntax-checks all tool JS and runs
+#    the unit tests. This is the real CI signal for day-to-day work.
+#  - deploy: publishes ./projects to GitHub Pages. It targets the protected
+#    `github-pages` environment, which only accepts deployments from the default
+#    branch — so it is gated to `main`. (Running it on a feature branch used to
+#    fail instantly with "environment protection rules"; that was noise, not a
+#    real failure. Branch work now gets a clean pass/fail from `validate`.)
+#
+# Live URL: https://lipk-stack.github.io/lipk-stack/
+# NOTE: a free GitHub plan only serves Pages from a PUBLIC repo.
 
 on:
   push:
-    branches: [main, claude/festive-ramanujan-guwaz5, claude/festive-ramanujan-7z4bqu, claude/festive-ramanujan-0w0bbj, claude/festive-ramanujan-agfoc2]
     paths: ["projects/**", ".github/workflows/deploy-pages.yml"]
   workflow_dispatch:
 
@@ -19,13 +22,47 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment.
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Syntax-check all tool JavaScript
+        run: |
+          fail=0
+          while IFS= read -r f; do
+            if node --check "$f"; then
+              echo "ok: $f"
+            else
+              echo "SYNTAX ERROR: $f"; fail=1
+            fi
+          done < <(find projects products -name '*.js' 2>/dev/null)
+          exit $fail
+
+      - name: Run unit tests
+        run: |
+          fail=0
+          while IFS= read -r t; do
+            echo "--- $t"
+            node "$t" || fail=1
+          done < <(find projects -name '*.test.cjs')
+          exit $fail
+
   deploy:
+    # Only the default branch may deploy to the protected github-pages environment.
+    if: github.ref == 'refs/heads/main'
+    needs: validate
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -37,8 +74,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
-          # Auto-provision the Pages site if it isn't enabled yet, so the
-          # deploy no longer hard-fails on a missing Settings → Pages toggle.
           enablement: true
 
       - name: Upload site artifact (./projects)

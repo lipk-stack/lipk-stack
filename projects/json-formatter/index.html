@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSON Formatter &amp; Validator — Free, Private, In-Browser (no signup)</title>
+  <meta name="description" content="Format, beautify, minify and validate JSON instantly in your browser. Pinpoints syntax errors with line &amp; column. Free, no sign-up, nothing uploaded." />
+  <meta name="theme-color" content="#0d9488" />
+  <meta property="og:title" content="JSON Formatter &amp; Validator — Free &amp; Private" />
+  <meta property="og:description" content="Beautify, minify and validate JSON in your browser. Errors show line &amp; column. Nothing is uploaded." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/json-formatter/" />
+  <link rel="stylesheet" href="../assets/site.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="logo">{ }</span>
+      <div>
+        <strong>JSON Formatter &amp; Validator</strong>
+        <span class="tag">Beautify, minify &amp; validate — on your device</span>
+      </div>
+    </a>
+    <nav class="crumbs"><a href="../index.html">← All free tools</a></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>JSON formatter &amp; validator</h1>
+    <p class="lead">Paste JSON to <strong>beautify, minify or validate</strong> it. Invalid JSON
+      shows the exact error with line &amp; column. <strong>Nothing is uploaded</strong> — it all
+      runs in your browser and autosaves locally.</p>
+
+    <div class="card">
+      <div style="display:flex; gap:.6rem; margin-bottom:.6rem; flex-wrap:wrap; align-items:center;">
+        <button id="format" class="btn" type="button">Beautify</button>
+        <button id="minify" class="btn" type="button">Minify</button>
+        <label class="muted" style="display:flex; align-items:center; gap:.35rem;">Indent
+          <select id="indent" style="background:var(--panel-2); color:inherit; border:1px solid var(--line); border-radius:8px; padding:.3rem;">
+            <option value="2" selected>2 spaces</option>
+            <option value="4">4 spaces</option>
+            <option value="tab">Tab</option>
+          </select>
+        </label>
+        <label class="muted" style="display:flex; align-items:center; gap:.35rem;">
+          <input type="checkbox" id="sortKeys" /> Sort keys
+        </label>
+        <span id="status" class="json-status" aria-live="polite"></span>
+      </div>
+
+      <div class="json-grid">
+        <textarea id="input" rows="16" placeholder='Paste JSON here, e.g. {"hello":"world","nums":[1,2,3]}'
+          spellcheck="false"
+          style="width:100%; resize:vertical; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.95rem; line-height:1.5; padding:.9rem; background:var(--panel-2); color:inherit; border:1px solid var(--line); border-radius:10px;"></textarea>
+        <textarea id="output" rows="16" readonly placeholder="Formatted output appears here…"
+          spellcheck="false"
+          style="width:100%; resize:vertical; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.95rem; line-height:1.5; padding:.9rem; background:var(--panel-2); color:inherit; border:1px solid var(--line); border-radius:10px;"></textarea>
+      </div>
+
+      <div style="display:flex; gap:.6rem; margin-top:.6rem; flex-wrap:wrap;">
+        <button id="copy" class="btn" type="button">Copy output</button>
+        <button id="clear" class="btn" type="button">Clear</button>
+      </div>
+    </div>
+
+    <div class="stats" id="stats" hidden></div>
+
+    <div id="supportRail" class="support" hidden></div>
+
+    <section class="card" style="margin-top:1.6rem;">
+      <h2 style="font-size:1.1rem; margin-top:0;">Format, validate &amp; debug JSON safely</h2>
+      <p class="muted" style="font-size:.92rem;">
+        Great for cleaning up an API response, validating a config file, spotting a missing comma
+        or bracket, or shrinking JSON before pasting it somewhere with a size limit. Validation
+        uses your browser's own JSON engine, so it matches the JSON spec exactly. Because it runs
+        100% on your device, you can safely format <em>sensitive</em> payloads (tokens, customer
+        data) — nothing is ever uploaded to a server, unlike many online JSON tools.
+      </p>
+    </section>
+  </main>
+
+  <footer class="sitefoot">
+    Part of <a href="../index.html">Free Tools</a> · <a href="https://github.com/lipk-stack/lipk-stack">Source on GitHub</a>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+  <script src="../assets/support.js"></script>
+</body>
+</html>

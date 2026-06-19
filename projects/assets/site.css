@@ -76,3 +76,10 @@ input[type=range] { padding: 0; }
 .sitefoot a { color: var(--accent); text-decoration: none; }
 .muted { color: var(--muted); }
 .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+/* JSON formatter: side-by-side input/output + status pill */
+.json-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; }
+@media (max-width: 720px) { .json-grid { grid-template-columns: 1fr; } }
+.json-status { font-size: .85rem; font-weight: 600; }
+.json-status.ok { color: #16a34a; }
+.json-status.err { color: #dc2626; }
