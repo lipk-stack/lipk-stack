@@ -382,3 +382,65 @@ Google Search Console; one short SEO guide per tool; community posts). If not,
 the message to surface is unchanged and specific: **one merge + one Gumroad
 signup** is the entire distance between five tested, live-ready tools and the
 first real dollar — keep that front-and-centre rather than adding a sixth tool.
+
+---
+
+## Day 6 — 2026-06-20 — Consolidate all branches + funnel SEO guide + the merge blocker
+
+**Status check (verified this run via git + the GitHub API)**
+- **The live site is FROZEN at Day 3.** `origin/main` is still at `f6d0338`
+  ("Day 3 follow-up"). Everything built since — Word Counter, JSON Formatter,
+  the *Get-Paid Playbook* product+funnel, and the SEO guides (Days 4 & 5) — is
+  committed, tested, and **NOT live**, because the github-pages environment only
+  deploys from `main` and nothing has reached it. The four original tools serve
+  fine; the newer six assets do not.
+- **Work was stranded across three separate branches** (`agfoc2` Day 4,
+  `358lcq` Day 5, and today's `f9d11n`). Each daily run branches fresh and never
+  merges, so the additions pile up off-`main`. The last green Pages deploy was
+  run #4 on `main`, 2026-06-17.
+- **Money is still $0.** Re-checked every `config.js` + the playbook `buyUrl` —
+  all tip / pro / buy / affiliate URLs are still empty, so the support rails are
+  correctly hidden and nothing can be earned. Blocker unchanged and owner-only:
+  no payout/affiliate/product account is connected.
+
+**What shipped today** (branch `claude/festive-ramanujan-f9d11n`)
+1. **Consolidated all prior work into one branch.** Fast-forwarded the Day 4+5
+   commits (from `358lcq`) onto this branch so the Word Counter, JSON Formatter,
+   both guides, and the Playbook product/funnel now live together in `f9d11n`,
+   ready to publish in a single merge. Re-ran the full gate: **71/71 assertions
+   pass** (21 word-counter + 16 loan + 34 json-formatter); every tool's JS passes
+   `node --check`.
+2. **NEW SEO guide — "How to get clients to pay invoices on time"**
+   (`projects/guides/get-clients-to-pay.html`). A genuinely useful, high-intent
+   evergreen page (set terms, invoice cleanly, a polite 4-step late-payment
+   follow-up sequence, escalation). It funnels directly to the two most
+   monetizable assets on the site — the free **InvoiceLite** generator and the
+   sellable **Get-Paid Playbook** — i.e. it feeds the most direct path to a first
+   dollar rather than adding a sixth tool (per Day 5's guidance).
+3. **Internal-linking / content engine.** Added a **"Free guides"** section to the
+   landing page (`projects/index.html`) surfacing both guides (previously orphaned
+   from the homepage); cross-linked the new guide from InvoiceLite's footer and
+   the Playbook page; added it to `sitemap.xml`. HTML validated (balanced).
+
+**Status of "money earned": still $0 — and this remains correct.** No revenue can
+or should be claimed before the owner connects a payout/affiliate/product account.
+
+**👉 The two owner-only actions — now the entire critical path:**
+1. **PUBLISH (1 merge):** merge `claude/festive-ramanujan-f9d11n` → `main`. That
+   single merge takes the Word Counter, JSON Formatter, both SEO guides, and the
+   Playbook funnel **live**. Nothing else publishes them — Pages deploys only from
+   `main`, and this routine is restricted to its feature branch, so it cannot do
+   this step itself. *(If you'd rather future runs auto-publish, reply granting
+   permission to push to `main` or open a PR, and I'll wire it in.)*
+2. **MONETIZE (≈5 min, free):** export the *Get-Paid Playbook* (in your Google
+   Drive) → PDF → free Gumroad product ($7–15) → paste the link into
+   `projects/get-paid-playbook/config.js` `buyUrl`. Optionally a Ko-fi `tipUrl`
+   and affiliate links in each tool's `config.js`.
+
+**Next run (Day 7) — START HERE:** re-check (a) did the work reach `main` and go
+live, and (b) did any `config.js`/`buyUrl` get filled. If live + monetized → go
+100% to traffic (submit `sitemap.xml` to Google Search Console; post live links
+in r/freelance, r/personalfinance, r/webdev). If still not, the message is
+unchanged and maximally specific: **one merge + one Gumroad signup** is the whole
+distance to the first real dollar. Do NOT add more tools — the constraint is
+publishing + an account, not features.
