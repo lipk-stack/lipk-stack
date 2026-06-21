@@ -164,15 +164,20 @@
 
   // --- Monetization rail (driven by config.js) -------------------------------
   function renderSupport() {
+    var site = window.SITE_CONFIG || {};
     var cfg = window.INVOICELITE_CONFIG || {};
+    // Per-tool values win; otherwise fall back to the site-wide defaults so the
+    // owner can switch the tip jar on for every tool by editing one file.
+    var proUrl = cfg.proUrl || site.proUrl;
+    var tipUrl = cfg.tipUrl || site.tipUrl;
     var rail = $("supportRail"), any = false;
 
-    if (cfg.proUrl) {
-      $("proSlot").innerHTML = '<a class="pro" href="' + cfg.proUrl + '" target="_blank" rel="noopener">⭐ Get the Pro template pack</a>';
+    if (proUrl) {
+      $("proSlot").innerHTML = '<a class="pro" href="' + proUrl + '" target="_blank" rel="noopener">⭐ Get the Pro template pack</a>';
       any = true;
     }
-    if (cfg.tipUrl) {
-      $("tipSlot").innerHTML = '<a class="tip" href="' + cfg.tipUrl + '" target="_blank" rel="noopener">☕ This tool is free — buy me a coffee</a>';
+    if (tipUrl) {
+      $("tipSlot").innerHTML = '<a class="tip" href="' + tipUrl + '" target="_blank" rel="noopener">☕ This tool is free — buy me a coffee</a>';
       any = true;
     }
     if (cfg.affiliates && cfg.affiliates.length) {
@@ -184,9 +189,9 @@
       any = true;
     }
     // Footer credit also links to tip page when available (gentle, removable via Pro).
-    if (cfg.tipUrl) {
+    if (tipUrl) {
       var foot = $("pFoot");
-      foot.innerHTML = 'Made with <a href="' + cfg.tipUrl + '" style="color:inherit">InvoiceLite</a>';
+      foot.innerHTML = 'Made with <a href="' + tipUrl + '" style="color:inherit">InvoiceLite</a>';
     }
     if (any) rail.hidden = false;
   }

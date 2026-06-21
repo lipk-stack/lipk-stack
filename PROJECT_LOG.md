@@ -444,3 +444,66 @@ in r/freelance, r/personalfinance, r/webdev). If still not, the message is
 unchanged and maximally specific: **one merge + one Gumroad signup** is the whole
 distance to the first real dollar. Do NOT add more tools — the constraint is
 publishing + an account, not features.
+
+---
+
+## Day 7 — 2026-06-21 — Consolidation, YAGNI cleanup, one-file revenue switch
+
+**Where things actually stood (verified this run).** `main` is still at the Day 3
+follow-up commit (`f6d0338`) — i.e. **Days 4, 5 and 6 never reached `main`**, so
+only the first four tools are live. Each daily routine ran on a *fresh* branch
+and the work piled up unmerged: Day 4 on `…-agfoc2`, Day 5 on `…-358lcq`, Day 6
+on `…-f9d11n`. Meanwhile a separate lineage (`…stoic-goldberg-*`) is evolving the
+old root **MAP Agent** Gemini app into its own product. This branch
+(`claude/nice-hamilton-try9lf`) started from `main`, i.e. behind by three days.
+
+**What this run did**
+1. **Consolidated** the most-advanced tools-site state (Day 6 / `…-f9d11n`,
+   commit `05cd3fb`) into this branch by fast-forward, so all six tools + both
+   SEO guides + the Get-Paid Playbook funnel are in one place — nothing stranded.
+2. **YAGNI / DRY cleanup + the single highest-leverage revenue change:** added
+   `projects/assets/site-config.js` — one `window.SITE_CONFIG` holding the
+   universal tip-jar (and optional default product) link. `support.js` now merges
+   it as a default under each tool's `TOOL_CONFIG` (per-tool values win). Wired
+   `site-config.js` into all seven tool pages. Result: the owner fills **one**
+   file once and the tip button lights up across **every** tool — instead of
+   editing six identical empty `config.js` files. Verified with a DOM-stub
+   simulation (site tip + per-tool affiliate both render).
+3. **Unified InvoiceLite's divergent rail.** It was the Day-1 odd-one-out (its own
+   inline renderer + `window.INVOICELITE_CONFIG`); it now also honors
+   `SITE_CONFIG`, so the one-file switch covers it too.
+4. **Rewrote the stale root `README.md`** (was leftover AI-Studio / Gemini
+   boilerplate describing the wrong app) to accurately document the actual
+   deployed product: the tools, the architecture, how to run/test, and the
+   one-file monetization switch.
+
+**Verified:** syntax-check clean on all tool JS; full unit suite green —
+**71/71** assertions (word-counter 21, loan 16, json-formatter 34).
+
+**Status of "money earned": still $0 — correct.** No payout account is connected;
+nothing can or should be claimed before one is.
+
+**👉 The critical path is unchanged and is owner-only — now even smaller:**
+1. **PUBLISH (1 merge):** merge this branch (`claude/nice-hamilton-try9lf`) →
+   `main`. Pages deploys only from `main`, and this routine is restricted to its
+   feature branch, so it cannot self-publish. *(Grant permission to push to `main`
+   or to open a PR and future runs can do this automatically.)* **Until this
+   merge, every day's work stays invisible — this is THE recurring bottleneck.**
+2. **MONETIZE (≈5 min, free):** put a free Ko-fi/Buy-Me-a-Coffee URL into
+   `projects/assets/site-config.js` `tipUrl` (now lights up all tools at once);
+   and/or export the Get-Paid Playbook (Google Drive) → PDF → free Gumroad
+   product → paste into `projects/get-paid-playbook/config.js` `buyUrl`.
+
+**Open question for the owner (raised this run):** the root **MAP Agent** Gemini
+scaffold (`App.tsx`, `services/`, `components/`, root `package.json`/`vite`…) is
+dead weight on the tools-site lineage (never built or deployed here) but is being
+actively developed on the `stoic-goldberg` branches. Left it in place rather than
+delete work from another lineage — should it be split into its own repo, or
+removed here?
+
+**Next run (Day 8) — START HERE:** (a) did this branch reach `main` / go live?
+(b) did `site-config.js` `tipUrl` or any `buyUrl` get filled (= monetized)? If
+live + monetized → go 100% to traffic (submit `sitemap.xml` to Google Search
+Console; post links in r/freelance, r/personalfinance, r/webdev). If not, do NOT
+add a 7th tool — re-surface that **one merge + one free account** is the entire
+remaining distance to the first real dollar, and resolve the MAP-Agent question.
