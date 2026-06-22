@@ -507,3 +507,55 @@ live + monetized → go 100% to traffic (submit `sitemap.xml` to Google Search
 Console; post links in r/freelance, r/personalfinance, r/webdev). If not, do NOT
 add a 7th tool — re-surface that **one merge + one free account** is the entire
 remaining distance to the first real dollar, and resolve the MAP-Agent question.
+
+---
+
+## Day 8 — 2026-06-22 — Consolidate everything onto one branch + resolve MAP-Agent (YAGNI)
+
+**Where things actually stood (verified this run).** Same logjam as every prior
+day: `main` is *still* at the Day 3 follow-up commit (`f6d0338`), so **Days 4–7
+never went live** — only the first four tools are serving. This branch
+(`claude/nice-hamilton-2eeq9p`) again started from `main`, i.e. four days behind.
+Revenue is **$0**: `site-config.js` `tipUrl`/`proUrl` and the Playbook `buyUrl`
+are all still empty. Neither owner-only action (merge to `main`, fill one config)
+has happened — which is *the* reason no money exists, not any missing feature.
+
+**What this run did**
+1. **Consolidated all stranded work onto this one branch.** Fast-forwarded to the
+   most-advanced state (`claude/nice-hamilton-try9lf`, commit `0b0c8ed`) so every
+   tool, both SEO guides, the Get-Paid Playbook funnel and the one-file revenue
+   switch are here. A single merge of this branch → `main` now publishes four
+   days of backlog at once.
+2. **Resolved the Day-7 open question — removed the dead MAP Agent (YAGNI).** The
+   root React/Gemini "MAP Agent" scaffold (`App.tsx`, `index.tsx`, `index.html`,
+   `metadata.json`, `constants.tsx`, `types.ts`, `services/`, `components/`, root
+   `package.json`, `tsconfig.json`, `vite.config.ts`) was never built, tested or
+   deployed by the tools site — it only needed a paid API key and added noise to a
+   repo we want to present/sell as a single clean product. It is **preserved on
+   the `claude/stoic-goldberg-*` branches and in git history**, so this removal is
+   fully reversible. The repo root is now just: `projects/` (the live site),
+   `products/`, `.github/`, `README.md`, `PROJECT_LOG.md`, `.gitignore`.
+
+**Verified:** removing the root `package.json` did not affect the tests (they are
+`.cjs`); full unit suite still green — **71/71** assertions (word-counter 21,
+loan 16, json-formatter 34). `node --check` clean on all tool JS.
+
+**Status of "money earned": still $0 — correct.** No payout account is connected.
+
+**👉 The critical path is unchanged, owner-only, and now a single merge unblocks
+four days of work:**
+1. **PUBLISH (1 merge):** merge `claude/nice-hamilton-2eeq9p` → `main`. Pages
+   deploys only from `main`; this routine is sandboxed to its feature branch and
+   may not push to `main` or open a PR without explicit permission. *Granting that
+   permission once lets every future run self-publish and ends this 5-day logjam.*
+2. **MONETIZE (≈5 min, free):** put a free Ko-fi/Buy-Me-a-Coffee URL into
+   `projects/assets/site-config.js` `tipUrl` (lights up all tools at once);
+   and/or export the Get-Paid Playbook → PDF → free Gumroad product → paste into
+   `projects/get-paid-playbook/config.js` `buyUrl`.
+
+**Next run (Day 9) — START HERE:** (a) did this branch reach `main` / go live?
+(b) did any `tipUrl`/`buyUrl` get filled? If live + monetized → go 100% to
+traffic (submit `sitemap.xml` to Google Search Console; post links in
+r/freelance, r/personalfinance, r/webdev, r/writing). If still not published,
+the answer is **not** another tool — it is to get the merge done; consider
+opening a PR (if permission was granted) so it's one click for the owner.
