@@ -559,3 +559,47 @@ traffic (submit `sitemap.xml` to Google Search Console; post links in
 r/freelance, r/personalfinance, r/webdev, r/writing). If still not published,
 the answer is **not** another tool — it is to get the merge done; consider
 opening a PR (if permission was granted) so it's one click for the owner.
+
+---
+
+## Day 9 — 2026-06-23 — Repo review + the publish logjam, owner decision requested
+
+**Picture of the whole effort (verified this run)**
+- `main` is **still at the Day 3 follow-up commit** (`f6d0338`). Days 4–8 each
+  built on a fresh feature branch and **none reached `main`**, so the live site
+  still serves only the first four tools. This is the same finding for the 5th
+  run in a row: **the bottleneck is publishing, not features.**
+- Adopted the most-advanced state onto this branch (`claude/nice-hamilton-simmij`,
+  fast-forwarded to Day 8 `0371c98`) so a single merge → `main` publishes the
+  full backlog at once.
+
+**Repo review / YAGNI (the part this run could fully own)**
+- Repo is already lean after Day 8 removed the dead MAP Agent. Root is just
+  `projects/` (live site), `products/` (sellable source), `.github/`, `README.md`,
+  `PROJECT_LOG.md`, `.gitignore`. No further dead code to cut without fiddling.
+- Confirmed **not** redundant: `products/get-paid-playbook/playbook.md` is the
+  sellable product source; `projects/get-paid-playbook/` is its live sales page.
+- CI workflow already correct: `validate` (syntax + tests) runs on every branch;
+  `deploy` is gated to `main` (the protected `github-pages` environment only
+  accepts the default branch).
+- **Green:** unit suite **71/71** (word-counter 21, loan 16, json-formatter 34);
+  `node --check` clean on all tool JS. `sitemap.xml` and the landing page
+  (`projects/index.html`) both list all 7 tools + both guides + the playbook —
+  no SEO gaps.
+
+**Status of "money earned": still $0 — correct.** No payout account connected.
+
+**👉 The two owner-only steps, unchanged — but step 1 is now a single action:**
+1. **PUBLISH:** merge this branch → `main` (or let a future run do it once
+   granted permission). Pages deploys only from `main`. *This run is requesting
+   that permission so the 5-day logjam ends and every future run self-publishes.*
+2. **MONETIZE (≈5 min, free):** put a Ko-fi/Buy-Me-a-Coffee URL in
+   `projects/assets/site-config.js` `tipUrl` (lights up every tool at once),
+   and/or export `products/get-paid-playbook/playbook.md` → PDF → free Gumroad
+   product → paste the link into `projects/get-paid-playbook/config.js` `buyUrl`.
+
+**Next run (Day 10) — START HERE:** check (a) did this reach `main`/go live, and
+(b) was any `tipUrl`/`buyUrl` filled. If published + monetized → go 100% to
+traffic (submit `sitemap.xml` to Google Search Console; post in r/freelance,
+r/personalfinance, r/webdev, r/writing). If still unpublished, do **not** add
+another tool — drive the merge home.
