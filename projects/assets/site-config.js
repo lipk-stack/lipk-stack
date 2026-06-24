@@ -21,6 +21,6 @@ window.SITE_CONFIG = {
   proLabel: "Get the Get-Paid Playbook →",
 
   // Social channels — shown on the link-in-bio page (/linkinbio/).
-  youtubeUrl: "", // e.g. "https://youtube.com/@yourchannel"
-  xhsUrl:     "", // e.g. "https://www.xiaohongshu.com/user/profile/your-id"
+  youtubeUrl: "https://www.youtube.com/@kkllmmm",
+  xhsUrl:     "https://www.rednote.com/user/profile/635fbed50000000018029004"
 };
