@@ -11,11 +11,16 @@
  * real revenue starts flowing.
  */
 window.SITE_CONFIG = {
-  // A free Ko-fi / Buy-Me-a-Coffee page — shown as a tip button on every tool.
+  // Tip jar — Buy Me a Coffee works with Wise in Malaysia. Free to sign up.
+  // Sign up at buymeacoffee.com -> connect Wise -> paste your page URL here.
   tipUrl: "", // e.g. "https://buymeacoffee.com/yourname"
-  tipLabel: "This tool is free — buy me a coffee",
+  tipLabel: "This tool is free — buy me a coffee ☕",
 
-  // Optional default product link (any tool's config.js can override this).
-  proUrl: "", // e.g. "https://yourname.gumroad.com/l/your-product"
-  proLabel: "Upgrade to Pro",
+  // Optional digital product link (shown on link-in-bio page and get-paid-playbook).
+  proUrl: "", // e.g. "https://yourname.gumroad.com/l/get-paid-playbook"
+  proLabel: "Get the Get-Paid Playbook →",
+
+  // Social channels — shown on the link-in-bio page (/linkinbio/).
+  youtubeUrl: "", // e.g. "https://youtube.com/@yourchannel"
+  xhsUrl:     "", // e.g. "https://www.xiaohongshu.com/user/profile/your-id"
 };

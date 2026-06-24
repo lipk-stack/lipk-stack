@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-MY">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>免费工具 Free Tools — 发票·图片·密码·贷款·字数·JSON</title>
+  <meta name="description" content="六款完全免费的在线工具：发票生成器、图片压缩、密码生成、贷款计算、字数统计、JSON格式化。无需注册，数据不上传，马来西亚自由职业者必备。" />
+  <meta property="og:title" content="免费工具合集 — Free Tools for Freelancers" />
+  <meta property="og:description" content="6 free browser tools. No signup, nothing uploaded. 发票·图片压缩·密码·贷款·字数·JSON" />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/linkinbio/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "name": "Free Tools — Link in Bio",
+    "url": "https://lipk-stack.github.io/lipk-stack/linkinbio/",
+    "description": "Collection of 6 free browser tools for freelancers and professionals"
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --line: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #0d9488;
+      --accent2: #14b8a6;
+      --red: #f43f5e;
+      --youtube: #ff0000;
+      --xhs: #ff2442;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 1.2rem 1rem 3rem; }
+
+    .profile {
+      max-width: 480px; margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center; gap: .8rem;
+      padding-bottom: 1.4rem;
+    }
+    .avatar {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--accent); display: flex; align-items: center;
+      justify-content: center; font-size: 2rem; margin-top: .6rem;
+    }
+    .profile h1 { font-size: 1.15rem; font-weight: 700; text-align: center; }
+    .profile .bio {
+      font-size: .83rem; color: var(--muted); text-align: center; line-height: 1.55;
+      max-width: 340px;
+    }
+
+    /* social row */
+    .socials {
+      display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+      margin-top: .2rem;
+    }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .45rem .9rem; border-radius: 9999px; font-size: .82rem;
+      font-weight: 600; text-decoration: none; color: #fff;
+      transition: opacity .15s;
+    }
+    .social-btn:hover { opacity: .85; }
+    .social-btn.yt  { background: var(--youtube); }
+    .social-btn.xhs { background: var(--xhs); }
+
+    /* tip button */
+    #tip-wrap { width: 100%; max-width: 480px; margin: 0 auto .4rem; display: none; }
+    #tip-btn {
+      display: block; width: 100%; padding: .75rem 1rem;
+      background: #f59e0b; color: #1c1400; font-weight: 700;
+      font-size: .95rem; text-align: center; border-radius: .6rem;
+      text-decoration: none; transition: opacity .15s;
+    }
+    #tip-btn:hover { opacity: .88; }
+
+    /* tool cards */
+    .tools {
+      width: 100%; max-width: 480px; margin: .6rem auto 0;
+      display: flex; flex-direction: column; gap: .65rem;
+    }
+    .tool-card {
+      display: flex; align-items: center; gap: .9rem;
+      background: var(--card); border-radius: .7rem; padding: .9rem 1rem;
+      text-decoration: none; color: var(--text);
+      border: 1px solid var(--line); transition: border-color .15s, transform .12s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .tool-card:hover, .tool-card:active { border-color: var(--accent2); transform: translateY(-1px); }
+    .tool-icon { font-size: 1.7rem; flex-shrink: 0; width: 2.4rem; text-align: center; }
+    .tool-text { flex: 1; }
+    .tool-zh { font-size: .95rem; font-weight: 700; display: block; }
+    .tool-en { font-size: .78rem; color: var(--muted); display: block; margin-top: .1rem; }
+    .tool-arrow { color: var(--muted); font-size: .9rem; flex-shrink: 0; }
+
+    /* divider */
+    .divider {
+      width: 100%; max-width: 480px; margin: .8rem auto;
+      border: none; border-top: 1px solid var(--line);
+    }
+    .section-label {
+      width: 100%; max-width: 480px; margin: 0 auto .4rem;
+      font-size: .72rem; color: var(--muted); text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* playbook card */
+    .playbook-card {
+      display: block; width: 100%; max-width: 480px; margin: 0 auto;
+      background: linear-gradient(135deg, #0d9488 0%, #0891b2 100%);
+      border-radius: .7rem; padding: 1rem 1.1rem;
+      text-decoration: none; color: #fff;
+      transition: opacity .15s;
+    }
+    .playbook-card:hover { opacity: .9; }
+    .playbook-card .pb-title { font-size: 1rem; font-weight: 700; }
+    .playbook-card .pb-sub { font-size: .8rem; opacity: .85; margin-top: .2rem; }
+    .playbook-card .pb-price { font-size: .78rem; margin-top: .5rem; opacity: .8; }
+
+    .footer {
+      text-align: center; font-size: .75rem; color: var(--muted);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Profile header -->
+  <div class="profile">
+    <div class="avatar">🛠️</div>
+    <h1>免费工具 · Free Tools</h1>
+    <p class="bio">
+      6款完全免费的浏览器工具，专为自由职业者和打工人设计。<br/>
+      <span style="font-size:.78rem">6 free browser tools for freelancers & creators. No signup, nothing uploaded.</span>
+    </p>
+    <div class="socials">
+      <!-- Fill in your channel/profile URLs in the script below -->
+      <a id="yt-btn"  class="social-btn yt"  href="#" style="display:none">▶ YouTube</a>
+      <a id="xhs-btn" class="social-btn xhs" href="#" style="display:none">📕 小红书 XHS</a>
+    </div>
+  </div>
+
+  <!-- Tip button (shown when tipUrl is set in site-config.js) -->
+  <div id="tip-wrap">
+    <a id="tip-btn" href="#" target="_blank" rel="noopener">☕ 请我喝杯咖啡 · Buy me a coffee</a>
+  </div>
+
+  <!-- Tools -->
+  <p class="section-label">🔧 免费工具 · Free Tools</p>
+  <div class="tools">
+    <a class="tool-card" href="../invoicelite/">
+      <span class="tool-icon">🧾</span>
+      <span class="tool-text">
+        <span class="tool-zh">发票生成器</span>
+        <span class="tool-en">InvoiceLite — Invoice / Quote / Receipt</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+    <a class="tool-card" href="../image-compressor/">
+      <span class="tool-icon">🖼️</span>
+      <span class="tool-text">
+        <span class="tool-zh">图片压缩工具</span>
+        <span class="tool-en">Image Compressor &amp; Resizer — free, private</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+    <a class="tool-card" href="../password-generator/">
+      <span class="tool-icon">🔐</span>
+      <span class="tool-text">
+        <span class="tool-zh">安全密码生成器</span>
+        <span class="tool-en">Password Generator — crypto-secure</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+    <a class="tool-card" href="../loan-calculator/">
+      <span class="tool-icon">🏦</span>
+      <span class="tool-text">
+        <span class="tool-zh">贷款 / 房贷计算器</span>
+        <span class="tool-en">Loan &amp; Mortgage Calculator — full amortisation</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+    <a class="tool-card" href="../word-counter/">
+      <span class="tool-icon">✍️</span>
+      <span class="tool-text">
+        <span class="tool-zh">字数统计 / 阅读时间</span>
+        <span class="tool-en">Word &amp; Character Counter — reading time</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+    <a class="tool-card" href="../json-formatter/">
+      <span class="tool-icon">{ }</span>
+      <span class="tool-text">
+        <span class="tool-zh">JSON 格式化工具</span>
+        <span class="tool-en">JSON Formatter &amp; Validator — line-level errors</span>
+      </span>
+      <span class="tool-arrow">›</span>
+    </a>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Playbook product (shown when buyUrl is set) -->
+  <p class="section-label">📦 电子书 · Digital Product</p>
+  <a class="playbook-card" id="playbook-card" href="../get-paid-playbook/" style="display:none">
+    <div class="pb-title">💰 收款实战手册 · Get-Paid Playbook</div>
+    <div class="pb-sub">马来西亚自由职业者追款、开发票、谈涨价完整指南</div>
+    <div class="pb-price" id="pb-price"></div>
+  </a>
+  <a class="playbook-card" id="playbook-card-free" href="../get-paid-playbook/">
+    <div class="pb-title">💰 收款实战手册 · Get-Paid Playbook</div>
+    <div class="pb-sub">马来西亚自由职业者追款、开发票、谈涨价完整指南</div>
+    <div class="pb-price">预览免费 · Preview free</div>
+  </a>
+
+  <div class="footer">
+    All tools run 100% in your browser · 所有工具在浏览器本地运行，数据不上传<br/>
+    <a href="../" style="color:var(--muted)">← All tools</a>
+  </div>
+
+  <script src="../assets/site-config.js"></script>
+  <script>
+    const cfg = window.SITE_CONFIG || {};
+
+    // Tip button
+    if (cfg.tipUrl) {
+      const w = document.getElementById('tip-wrap');
+      const b = document.getElementById('tip-btn');
+      w.style.display = 'block';
+      b.href = cfg.tipUrl;
+      if (cfg.tipLabel) b.textContent = '☕ ' + cfg.tipLabel;
+    }
+
+    // Social links — extend site-config.js with youtubeUrl / xhsUrl, or set here
+    const ytUrl  = cfg.youtubeUrl  || '';
+    const xhsUrl = cfg.xhsUrl     || '';
+    if (ytUrl)  { const b = document.getElementById('yt-btn');  b.href = ytUrl;  b.style.display = 'inline-flex'; }
+    if (xhsUrl) { const b = document.getElementById('xhs-btn'); b.href = xhsUrl; b.style.display = 'inline-flex'; }
+
+    // Playbook: if buyUrl set, show paid card; else show free preview card
+    if (cfg.proUrl) {
+      const paid = document.getElementById('playbook-card');
+      const free = document.getElementById('playbook-card-free');
+      paid.href = cfg.proUrl;
+      paid.style.display = 'block';
+      free.style.display = 'none';
+      const price = document.getElementById('pb-price');
+      if (cfg.proLabel) price.textContent = cfg.proLabel;
+    }
+  </script>
+</body>
+</html>
