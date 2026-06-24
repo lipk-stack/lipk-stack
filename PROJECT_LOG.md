@@ -603,3 +603,56 @@ opening a PR (if permission was granted) so it's one click for the owner.
 traffic (submit `sitemap.xml` to Google Search Console; post in r/freelance,
 r/personalfinance, r/webdev, r/writing). If still unpublished, do **not** add
 another tool — drive the merge home.
+
+---
+
+## Day 10 — 2026-06-24 — Branch made current + SEO structured data (rich results)
+
+**Picture of the whole effort (verified this run)**
+- `main` is **still at the Day 3 follow-up commit** (`f6d0338`) — 6th run in a row
+  with the same finding: **the bottleneck is publishing, not features.** Days 4–9
+  each built on a fresh branch; none reached `main`, so the live site still serves
+  only the first four tools.
+- My assigned branch (`claude/nice-hamilton-vitkdr`) started **stale at `f6d0338`**.
+  Fast-forwarded it to the most-advanced state (Day 9 `34d29b9`), so it now holds
+  **all 7 tools + both SEO guides + the Get-Paid Playbook funnel + the one-file
+  `SITE_CONFIG` revenue switch**. A single merge → `main` publishes the full
+  backlog at once.
+
+**Repo review / YAGNI**
+- Repo confirmed lean: root is `projects/` (live site), `products/` (sellable
+  source), `.github/`, `README.md`, `PROJECT_LOG.md`, `.gitignore`. No dead code,
+  no TODO/FIXME markers, no orphaned files. `sitemap.xml` and `projects/index.html`
+  list all 7 tools + 2 guides + playbook — no SEO gaps.
+
+**Enhancement this run (the one automatable money lever — organic traffic)**
+- Added `SoftwareApplication` **JSON-LD structured data** to all 6 interactive tool
+  pages (invoicelite, image-compressor, password-generator, loan-calculator,
+  word-counter, json-formatter). Each block is derived from the page's existing
+  title/description and declares `price: 0` / `isAccessibleForFree`. This qualifies
+  the tools for Google rich results, improving click-through on the searches the
+  tools already target — the only growth lever this routine can pull without the
+  owner. Validated: all 6 blocks parse as valid JSON with the correct schema type.
+- **Green:** unit suite **71/71** (word-counter 21, loan 16, json-formatter 34);
+  `node --check` clean on all 15 tool/config/asset JS files.
+
+**Status of "money earned": still $0 — correct.** No payout account is connected,
+and (separately) the extra tools are not yet live. Both are owner-only steps.
+
+**👉 The critical path — explicitly asked the owner this run:**
+1. **PUBLISH:** merge `claude/nice-hamilton-vitkdr` → `main` (Pages deploys only
+   from `main`). This run used `AskUserQuestion` to request either a one-time
+   merge/PR or **standing permission** so every future run self-publishes and the
+   6-day logjam ends permanently.
+2. **MONETIZE (≈5 min, free):** put a Ko-fi/Buy-Me-a-Coffee URL in
+   `projects/assets/site-config.js` `tipUrl` (lights up every tool at once),
+   and/or export `products/get-paid-playbook/playbook.md` → PDF → free Gumroad
+   product → paste the link into `projects/get-paid-playbook/config.js` `buyUrl`.
+
+**Next run (Day 11) — START HERE:** check (a) did this reach `main`/go live (look
+for 7 tools on the live site), and (b) was any `tipUrl`/`buyUrl` filled. If
+published + monetized → go 100% to traffic (submit `sitemap.xml` to Google Search
+Console; post in r/freelance, r/personalfinance, r/webdev, r/writing; write one
+more SEO guide). If still unpublished, do **not** add another tool — the product
+is complete; only the merge + a payout account stand between this and the first
+real dollar.
