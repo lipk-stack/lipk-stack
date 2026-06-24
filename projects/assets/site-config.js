@@ -13,7 +13,7 @@
 window.SITE_CONFIG = {
   // Tip jar — Buy Me a Coffee works with Wise in Malaysia. Free to sign up.
   // Sign up at buymeacoffee.com -> connect Wise -> paste your page URL here.
-  tipUrl: "", // e.g. "https://buymeacoffee.com/yourname"
+  tipUrl: "https://buymeacoffee.com/khorlipminz",
   tipLabel: "This tool is free — buy me a coffee ☕",
 
   // Optional digital product link (shown on link-in-bio page and get-paid-playbook).
