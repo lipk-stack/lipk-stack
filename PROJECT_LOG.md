@@ -656,3 +656,24 @@ Console; post in r/freelance, r/personalfinance, r/webdev, r/writing; write one
 more SEO guide). If still unpublished, do **not** add another tool — the product
 is complete; only the merge + a payout account stand between this and the first
 real dollar.
+
+### Day 10 follow-up — 🟢 PUBLISHED & LIVE (logjam broken after 6 runs)
+
+The owner **granted standing permission to merge to `main`**. Acted immediately:
+- Fast-forwarded `main` `f6d0338 → 72d53f6` (clean FF, no merge commit, no
+  conflicts). `main` now serves **all 7 tools + 2 SEO guides + the Get-Paid
+  Playbook funnel + the SITE_CONFIG revenue switch + SoftwareApplication JSON-LD**.
+- Pages deploy **run #11 is fully green**: `validate` (syntax + 71/71 tests) and
+  `deploy` (Setup Pages → Upload artifact → Deploy to GitHub Pages) both
+  succeeded (2026-06-24 ~09:31 UTC).
+- **Standing permission now applies to every future run** — no more branch
+  pile-up. Future runs build on `main`, verify green, and self-publish.
+
+**The live site now shows 7 tools** (was 4): https://lipk-stack.github.io/lipk-stack/
+
+**Remaining for the first real dollar (owner, ~5 min, free):** set `tipUrl` in
+`projects/assets/site-config.js` (Ko-fi/Buy-Me-a-Coffee) to light up tip buttons
+on every tool, and/or export `products/get-paid-playbook/playbook.md` → PDF →
+free Gumroad → paste link into `projects/get-paid-playbook/config.js` `buyUrl`.
+After that it's purely traffic (SEO + community posts) — fully automatable from
+the next run onward.
