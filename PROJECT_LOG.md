@@ -677,3 +677,56 @@ on every tool, and/or export `products/get-paid-playbook/playbook.md` → PDF �
 free Gumroad → paste link into `projects/get-paid-playbook/config.js` `buyUrl`.
 After that it's purely traffic (SEO + community posts) — fully automatable from
 the next run onward.
+
+---
+
+## Day 11 — 2026-06-25 — FAQ structured data on every tool (Google rich results)
+
+**Where things actually stand (verified this run via the GitHub API).** The site
+is **live and monetized**. `main` was at `5c9bc16` and serves all 7 tools + 2 SEO
+guides + the link-in-bio page + the Get-Paid Playbook funnel. The **Buy Me a
+Coffee tip jar (`khorlipminz`) is wired in and live** across every tool via
+`projects/assets/site-config.js`; social links (YouTube `@kkllmmm`, RedNote/XHS)
+are live on `/linkinbio/`. The publish logjam is gone (Day 10 standing permission)
+and a docs note explains the sandbox git quirk: local `origin/main` can read stale
+(`79f51ec`) but the **live remote is authoritative via the GitHub MCP API**.
+
+**The honest money position:** $0 actually received, and that's correct. The tip
+rail is on, but tips/affiliate income only arrive once real visitors land, and no
+traffic has been driven yet. No revenue is claimed before it exists.
+
+**What shipped today** (branch `claude/nice-hamilton-bb9qdi`, built on live `main`)
+- Added a genuinely useful **3-question FAQ to each of the 6 tool pages**
+  (word-counter, json-formatter, loan-calculator, image-compressor,
+  password-generator, invoicelite), each answering a real high-intent query users
+  actually search.
+- Each FAQ ships matching **FAQPage JSON-LD**, so the pages qualify for **Google
+  FAQ rich results** — more SERP real estate + higher click-through. This is the
+  single best traffic lever automatable without the owner, and the extra on-page
+  copy fixes the **thin-content** weakness of single-purpose tool pages.
+- Added a reusable `.faq` accordion style to `assets/site.css` (DRY); InvoiceLite
+  (its own stylesheet) uses a self-contained, print-safe FAQ block.
+- **Repo review / YAGNI:** repo is lean — no dead code, no TODO/FIXME markers,
+  no orphaned files. Left `products/get-paid-playbook/MONETIZATION.md`-style docs
+  in place (harmless, unreferenced).
+
+**Verified green:** 13/13 JSON-LD blocks parse (6 `FAQPage`); **71/71** unit
+assertions (word-counter 21, loan 16, json-formatter 34); `node --check` clean on
+all JS. Published by fast-forwarding `main` `5c9bc16 → 602bd1f`; Pages deploy ran.
+
+**👉 The only thing between this and real money is TRAFFIC (owner, your move):**
+1. **Submit the sitemap** to Google Search Console (free, 5 min) so the tools +
+   new FAQ rich results get indexed.
+2. **Distribute:** post the live tool links where the audience asks (r/freelance →
+   InvoiceLite, r/personalfinance → loan calc, r/webdev → JSON formatter) and/or
+   publish the ready-made bilingual posts at `/guides/social-content-templates.html`.
+3. *(Optional, higher $/visit)* add affiliate referral URLs to each tool's
+   `config.js`; *(optional)* sell the Get-Paid Playbook via a free Gumroad product.
+
+**Next run (Day 12) — START HERE:** re-verify the deploy is green and the site is
+live; check whether the sitemap was submitted / any affiliate or `buyUrl` got
+filled. Then the highest-value automatable work is **one new high-intent SEO
+guide** that funnels to a tool (e.g. "how to compress images for email/web",
+"strong password best practices", "how much house can I afford"), wired into
+`sitemap.xml` + `index.html` + the related tool. Do **not** add another tool — the
+product is complete; the constraint is traffic, not features.
