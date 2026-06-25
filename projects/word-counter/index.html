@@ -29,6 +29,29 @@
     "isAccessibleForFree": true
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does the word counter count words?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It splits your text on spaces and line breaks and counts the non-empty chunks, so a hyphenated word like \"well-known\" counts as one word. Counts update live as you type or paste." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my text uploaded or stored anywhere?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. The counter runs entirely in your browser and nothing is sent to a server. Your text is autosaved only to your own device's local storage so it survives a refresh, and you can clear it any time." }
+      },
+      {
+        "@type": "Question",
+        "name": "How is reading and speaking time estimated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Reading time assumes about 200 words per minute and speaking time about 130 words per minute, which are common averages for adults. Use them as a guide for essays, speeches and blog posts." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -85,6 +108,25 @@
       </p>
       <p class="muted" style="font-size:.92rem;">Not sure how long it should be? See
         <a href="../guides/ideal-word-counts.html">ideal word counts for essays, blog posts &amp; social posts</a>.</p>
+    </section>
+
+    <section class="faq card">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>How does the word counter count words?</summary>
+        <p>It splits your text on spaces and line breaks and counts the non-empty chunks, so a
+          hyphenated word like “well-known” counts as one word. Counts update live as you type or paste.</p>
+      </details>
+      <details>
+        <summary>Is my text uploaded or stored anywhere?</summary>
+        <p>No. The counter runs entirely in your browser and nothing is sent to a server. Your text is
+          autosaved only to your own device’s local storage so it survives a refresh, and you can clear it any time.</p>
+      </details>
+      <details>
+        <summary>How is reading and speaking time estimated?</summary>
+        <p>Reading time assumes about 200 words per minute and speaking time about 130 words per minute,
+          which are common averages for adults. Use them as a guide for essays, speeches and blog posts.</p>
+      </details>
     </section>
   </main>
 

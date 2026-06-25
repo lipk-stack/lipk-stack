@@ -40,6 +40,29 @@
     "isAccessibleForFree": true
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is my monthly mortgage payment calculated?",
+        "acceptedAnswer": { "@type": "Answer", "text": "It uses the standard amortizing-loan formula M = P · r / (1 − (1 + r)^−n), where P is the amount borrowed, r is the monthly interest rate (annual rate ÷ 12) and n is the number of monthly payments. Each month interest is charged on the remaining balance and the rest of the payment reduces the principal." }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does an extra monthly payment save?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Any amount you add in the \"Extra monthly payment\" field goes straight to principal, so the balance falls faster, the loan is paid off sooner, and you pay less total interest. The amortization schedule updates to show the shorter payoff time and lower interest total." }
+      },
+      {
+        "@type": "Question",
+        "name": "Does this loan calculator work for any currency?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can switch between USD, EUR, GBP, JPY, AUD, CAD, SGD, INR and MYR. The math is identical for any currency, and everything is calculated in your browser — nothing is sent anywhere." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -111,6 +134,28 @@
         number of monthly payments. Each month, interest is charged on the remaining balance and the
         rest of your payment reduces the principal — which is what the schedule above shows.
       </p>
+    </section>
+
+    <section class="faq card">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>How is my monthly mortgage payment calculated?</summary>
+        <p>It uses the standard amortizing-loan formula <code>M = P · r / (1 − (1 + r)⁻ⁿ)</code>, where
+          <code>P</code> is the amount borrowed, <code>r</code> is the monthly interest rate (annual rate
+          ÷ 12) and <code>n</code> is the number of monthly payments. Each month interest is charged on the
+          remaining balance and the rest of the payment reduces the principal.</p>
+      </details>
+      <details>
+        <summary>How much does an extra monthly payment save?</summary>
+        <p>Any amount you add in the “Extra monthly payment” field goes straight to principal, so the balance
+          falls faster, the loan is paid off sooner, and you pay less total interest. The schedule updates to
+          show the shorter payoff time and lower interest total.</p>
+      </details>
+      <details>
+        <summary>Does this calculator work for any currency?</summary>
+        <p>Yes. You can switch between USD, EUR, GBP, JPY, AUD, CAD, SGD, INR and MYR. The math is identical
+          for any currency, and everything is calculated in your browser — nothing is sent anywhere.</p>
+      </details>
     </section>
   </main>
 

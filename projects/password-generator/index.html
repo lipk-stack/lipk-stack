@@ -29,6 +29,29 @@
     "isAccessibleForFree": true
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are these passwords really random and secure?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Passwords are generated with crypto.getRandomValues, the same cryptographically secure randomness browsers use for encryption. They are created on your device, never sent anywhere and never logged, so each one is unique to you." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long should my password be?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Aim for at least 16 random characters, or a passphrase of 4 or more random words, for strong everyday security. Longer is stronger — the built-in strength meter shows the entropy so you can see the effect of adding length or character types." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is a passphrase and is it safer?",
+        "acceptedAnswer": { "@type": "Answer", "text": "A passphrase strings together several random words, like \"river-camera-7-mellow\". It can be just as strong as a random string but far easier to type and remember. For accounts you log into by hand, a passphrase is often the better choice." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -96,6 +119,28 @@
         cryptographically secure randomness browsers use for encryption — and never leave your
         device or get logged. For maximum safety, store the result in a password manager.
       </p>
+    </section>
+
+    <section class="faq card">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Are these passwords really random and secure?</summary>
+        <p>Yes. Passwords are generated with <code>crypto.getRandomValues</code>, the same cryptographically
+          secure randomness browsers use for encryption. They are created on your device, never sent
+          anywhere and never logged, so each one is unique to you.</p>
+      </details>
+      <details>
+        <summary>How long should my password be?</summary>
+        <p>Aim for at least 16 random characters, or a passphrase of 4 or more random words, for strong
+          everyday security. Longer is stronger — the strength meter shows the entropy so you can see the
+          effect of adding length or character types.</p>
+      </details>
+      <details>
+        <summary>What is a passphrase and is it safer?</summary>
+        <p>A passphrase strings together several random words, like “river-camera-7-mellow”. It can be just
+          as strong as a random string but far easier to type and remember. For accounts you log into by
+          hand, a passphrase is often the better choice.</p>
+      </details>
     </section>
   </main>
 

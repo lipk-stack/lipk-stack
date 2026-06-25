@@ -29,6 +29,29 @@
     "isAccessibleForFree": true
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it safe to paste sensitive JSON here?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. The formatter runs 100% in your browser using its built-in JSON engine, so your data is never uploaded to a server. That makes it safe for tokens, API keys and customer data, unlike many online JSON tools that send your payload to their backend." }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is my JSON invalid?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The most common causes are a trailing comma, a missing comma or bracket, single quotes instead of double quotes, or unquoted keys. When validation fails, the tool shows the exact line and column of the first error so you can fix it quickly." }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between beautify and minify?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Beautify adds indentation and line breaks so JSON is easy to read and review. Minify strips all whitespace to make the smallest possible string, which is useful before sending JSON over the network or pasting it where there is a size limit." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -93,6 +116,28 @@
         100% on your device, you can safely format <em>sensitive</em> payloads (tokens, customer
         data) — nothing is ever uploaded to a server, unlike many online JSON tools.
       </p>
+    </section>
+
+    <section class="faq card">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Is it safe to paste sensitive JSON here?</summary>
+        <p>Yes. The formatter runs 100% in your browser using its built-in JSON engine, so your data is
+          never uploaded to a server. That makes it safe for tokens, API keys and customer data — unlike
+          many online JSON tools that send your payload to their backend.</p>
+      </details>
+      <details>
+        <summary>Why is my JSON invalid?</summary>
+        <p>The most common causes are a trailing comma, a missing comma or bracket, single quotes instead
+          of double quotes, or unquoted keys. When validation fails, the tool shows the exact line and
+          column of the first error so you can fix it quickly.</p>
+      </details>
+      <details>
+        <summary>What’s the difference between beautify and minify?</summary>
+        <p>Beautify adds indentation and line breaks so JSON is easy to read and review. Minify strips all
+          whitespace to make the smallest possible string — useful before sending JSON over the network or
+          pasting it where there’s a size limit.</p>
+      </details>
     </section>
   </main>
 

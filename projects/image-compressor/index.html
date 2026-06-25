@@ -29,6 +29,29 @@
     "isAccessibleForFree": true
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Are my photos uploaded to a server?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Images are compressed and resized using your browser's built-in canvas, entirely on your own device. Nothing is uploaded, so your photos stay private and the tool even works offline." }
+      },
+      {
+        "@type": "Question",
+        "name": "Which format should I choose — JPEG, WebP or PNG?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Use JPEG for photographs, WebP for the smallest modern files at similar quality, and PNG when you need lossless quality or transparency for graphics and logos. Lowering the quality slider shrinks JPEG and WebP files the most." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I make an image file smaller without losing quality?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Start at about 0.8 quality and reduce the max width to the size you actually need (for example 1600 px for web). Most photos shrink dramatically with no visible difference. Compare the before and after file sizes shown for each image and pick the smallest that still looks good." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="topbar">
@@ -83,6 +106,27 @@
         stay private and it works even offline. Great for shrinking photos before emailing,
         uploading to a website, or attaching to a listing.
       </p>
+    </section>
+
+    <section class="faq card">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Are my photos uploaded to a server?</summary>
+        <p>No. Images are compressed and resized using your browser’s built-in canvas, entirely on your own
+          device. Nothing is uploaded, so your photos stay private and the tool even works offline.</p>
+      </details>
+      <details>
+        <summary>Which format should I choose — JPEG, WebP or PNG?</summary>
+        <p>Use JPEG for photographs, WebP for the smallest modern files at similar quality, and PNG when you
+          need lossless quality or transparency for graphics and logos. Lowering the quality slider shrinks
+          JPEG and WebP files the most.</p>
+      </details>
+      <details>
+        <summary>How do I make an image smaller without losing quality?</summary>
+        <p>Start at about 0.8 quality and reduce the max width to the size you actually need (for example
+          1600 px for web). Most photos shrink dramatically with no visible difference — compare the before
+          and after sizes shown for each image and pick the smallest that still looks good.</p>
+      </details>
     </section>
   </main>
 
