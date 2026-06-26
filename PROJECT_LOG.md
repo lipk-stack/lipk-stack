@@ -730,3 +730,65 @@ guide** that funnels to a tool (e.g. "how to compress images for email/web",
 "strong password best practices", "how much house can I afford"), wired into
 `sitemap.xml` + `index.html` + the related tool. Do **not** add another tool — the
 product is complete; the constraint is traffic, not features.
+
+---
+
+## Day 12 — 2026-06-26 — New high-intent SEO guide: "How much house can I afford?"
+
+**Where things stand (verified this run via the GitHub API).** The site is **live,
+green and monetized.** `main` was at `07578b0` (Day 11 log) and the last Pages
+deploy (`602bd1f`) was green; all 7 tools + 3 guides + link-in-bio + the Get-Paid
+Playbook funnel are serving. The **Buy Me a Coffee tip jar (`khorlipminz`) is live**
+across every tool via `projects/assets/site-config.js`. No regressions. Standing
+permission to publish to `main` (granted Day 10) is in effect, so this run
+self-published.
+
+**Honest money position:** $0 actually received, and that's correct. The tip rail
+is on, but tips/affiliate income only arrive once real visitors land — and traffic
+is the one remaining lever. No revenue is claimed before it exists.
+
+**What shipped today** (branch `claude/zen-gauss-q21clw`, built on live `main`)
+- **New SEO guide — "How much house can I afford?"**
+  (`projects/guides/how-much-house-can-i-afford.html`). High search-volume,
+  high-intent evergreen query: explains the **28/36 rule**, how to work backwards
+  from an affordable payment (down payment / rate / term / taxes levers), the costs
+  people forget (PMI, escrow, maintenance, closing costs), and an affordability
+  checklist. It funnels directly to the **loan & mortgage calculator** — the site's
+  highest-monetization tool (mortgage/refinance affiliates are among the
+  highest-paying programs).
+- Ships **Article + FAQPage JSON-LD**, qualifying the page for Google rich results
+  — the single best traffic lever automatable without the owner, and it fixes the
+  thin-content weakness with genuinely useful copy.
+- **Wired in (no orphans):** reciprocal links from the loan-calculator footer and
+  the homepage "Free guides" section, plus an entry in `sitemap.xml`.
+
+**Repo review / YAGNI:** repo is lean — no TODO/FIXME markers, no dead code, all 4
+guides present in the sitemap, `products/` clean. Nothing to cut.
+
+**Verified green:** 2/2 JSON-LD blocks parse (Article + FAQPage); **71/71** unit
+assertions (word-counter 21, loan 16, json-formatter 34); `node --check` clean on
+all JS. Published by fast-forwarding `main` `07578b0 → ade413d`; Pages deploy for
+`ade413d` is **completed success** — the guide is live at
+https://lipk-stack.github.io/lipk-stack/guides/how-much-house-can-i-afford.html
+
+**👉 The only thing between this and real money is TRAFFIC (owner, your move):**
+1. **Submit the sitemap** to Google Search Console (free, 5 min) so the tools +
+   guides + FAQ/Article rich results get indexed.
+2. **Distribute:** post the live links where the audience asks (r/personalfinance &
+   r/firsttimehomebuyer → the new affordability guide + loan calc; r/freelance →
+   InvoiceLite; r/webdev → JSON formatter), and/or publish the ready-made bilingual
+   posts at `/guides/social-content-templates.html`.
+3. *(Optional, higher $/visit)* add affiliate referral URLs to each tool's
+   `config.js`; *(optional)* sell the Get-Paid Playbook via a free Gumroad product
+   (paste link into `projects/get-paid-playbook/config.js` `buyUrl`).
+
+**Next run (Day 13) — START HERE:** re-verify the deploy is green and the site is
+live; check whether the sitemap was submitted / any affiliate or `buyUrl` got
+filled. If still nothing on traffic, the highest-value automatable work is **one
+more high-intent SEO guide** funneling to an under-served tool (candidates:
+"how to compress images for email without losing quality" → image-compressor;
+"strong password best practices / how long should a password be" →
+password-generator; "json formatting & common errors" → json-formatter), wired
+into `sitemap.xml` + `index.html` + the related tool, each with Article + FAQPage
+JSON-LD. Do **not** add another tool — the product is complete; the constraint is
+traffic, not features.
