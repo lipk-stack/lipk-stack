@@ -792,3 +792,67 @@ password-generator; "json formatting & common errors" → json-formatter), wired
 into `sitemap.xml` + `index.html` + the related tool, each with Article + FAQPage
 JSON-LD. Do **not** add another tool — the product is complete; the constraint is
 traffic, not features.
+
+---
+
+## Day 13 — 2026-06-27 — New high-intent SEO guide: "How to compress images for email"
+
+**Where things stand (verified this run via the GitHub API).** The site is **live,
+green and monetized.** Remote `main` was at `e931157` (Day 12 log) and the last
+code-bearing Pages deploy (`ade413d`) was **completed success**; all 7 tools + 4
+guides + link-in-bio + the Get-Paid Playbook funnel are serving. The **Buy Me a
+Coffee tip jar (`khorlipminz`) is live** across every tool via
+`projects/assets/site-config.js`. No regressions. Standing permission to publish
+to `main` (Day 10) is in effect, so this run self-published.
+
+**Honest money position:** $0 actually received, and that's correct. The tip rail
+is on, but tips/affiliate income only arrive once real visitors land — and traffic
+is the one remaining lever, which legally needs the owner's distribution (post the
+links) + payout identity. No revenue is claimed before it exists.
+
+**What shipped today** (branch `claude/zen-gauss-8xkl6x`, built on live `main`)
+- **New SEO guide — "How to compress images for email without losing quality"**
+  (`projects/guides/compress-images-for-email.html`). Very high search-volume,
+  high-intent evergreen query (the "attachment too large" pain point). Covers why
+  photos exceed email limits (Gmail ~25 MB / Outlook ~20 MB / corporate ~10 MB),
+  the two levers that shrink a file (quality ~0.8 + resize to ~1600 px), how to
+  pick JPEG vs WebP vs PNG, a per-use-case recipe, and the privacy angle. Funnels
+  directly to the **image compressor & resizer** — a previously under-served tool
+  with no dedicated guide.
+- Ships **Article + FAQPage JSON-LD**, qualifying the page for Google rich results
+  — the single best traffic lever automatable without the owner, and it fixes the
+  thin-content weakness of single-purpose tool pages with genuinely useful copy.
+- **Wired in (no orphans):** reciprocal links from the image-compressor "Why this
+  tool?" section and the homepage "Free guides" section, plus an entry in
+  `sitemap.xml`.
+
+**Repo review / YAGNI:** repo is lean — no TODO/FIXME markers, no dead code, all 5
+guides present in `sitemap.xml`, `products/` clean. (The ff to `main` also dropped
+two stale local scaffold files, `types.ts`/`vite.config.ts`, that history had
+already removed — remote was unaffected.) Nothing to cut.
+
+**Verified green:** 2/2 JSON-LD blocks parse (Article + FAQPage); **71/71** unit
+assertions (word-counter 21, loan 16, json-formatter 34); `node --check` clean on
+all JS; `sitemap.xml` valid XML. Published by fast-forwarding `main`
+`e931157 → 55b946b`; Pages deploy triggered.
+
+**👉 The only thing between this and real money is TRAFFIC (owner, your move):**
+1. **Submit the sitemap** to Google Search Console (free, 5 min) so the tools +
+   5 guides + FAQ/Article rich results get indexed.
+2. **Distribute:** post the live links where the audience asks (r/email & r/gmail &
+   r/techsupport → the new image-compression guide + tool; r/personalfinance →
+   loan calc; r/freelance → InvoiceLite; r/webdev → JSON formatter), and/or publish
+   the ready-made bilingual posts at `/guides/social-content-templates.html`.
+3. *(Optional, higher $/visit)* add affiliate referral URLs to each tool's
+   `config.js` (cloud-storage affiliates suit the image tool); *(optional)* sell
+   the Get-Paid Playbook via a free Gumroad product (`buyUrl`).
+
+**Next run (Day 14) — START HERE:** re-verify the deploy is green and the site is
+live; check whether the sitemap was submitted / any affiliate or `buyUrl` got
+filled. If still nothing on traffic, the highest-value automatable work is **one
+more high-intent SEO guide** funneling to a still-under-served tool (remaining
+candidates: "strong password best practices / how long should a password be" →
+password-generator; "json formatting & common errors / how to fix invalid JSON" →
+json-formatter), wired into `sitemap.xml` + `index.html` + the related tool, each
+with Article + FAQPage JSON-LD. Do **not** add another tool — the product is
+complete; the constraint is traffic, not features.
