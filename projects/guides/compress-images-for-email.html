@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Compress Images for Email Without Losing Quality (2026) — Free, Private Tool</title>
+  <meta name="description" content="A clear, no-fluff guide to shrinking photos so they actually send: why email size limits trip you up, the quality-vs-size sweet spot, the right dimensions for email and web, and a free in-browser compressor that never uploads your files." />
+  <meta name="theme-color" content="#0d9488" />
+  <meta property="og:title" content="How to Compress Images for Email Without Losing Quality" />
+  <meta property="og:description" content="Beat the 25 MB attachment limit: pick the right format, quality and size, and compress photos privately in your browser — nothing uploaded." />
+  <meta property="og:type" content="article" />
+  <link rel="canonical" href="https://lipk-stack.github.io/lipk-stack/guides/compress-images-for-email.html" />
+  <link rel="stylesheet" href="../assets/site.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Compress Images for Email Without Losing Quality",
+    "description": "A practical guide to shrinking photos so they send under email size limits: format choice, the quality sweet spot, the right pixel dimensions, and a free in-browser compressor that never uploads your files.",
+    "author": { "@type": "Organization", "name": "Free Tools" },
+    "mainEntityOfPage": "https://lipk-stack.github.io/lipk-stack/guides/compress-images-for-email.html"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the maximum size for an email attachment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Gmail and most providers cap a single email (all attachments combined) at about 25 MB, and Outlook.com is lower at around 20 MB. Because of encoding overhead the practical limit is closer to 20 MB, so aim to keep a batch of photos well under that — under 10 MB total is a safe target that also downloads quickly for the recipient."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I compress an image without losing quality?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Two levers do the work: lower the quality slightly (about 0.8 for JPEG or WebP is usually invisible to the eye) and reduce the pixel dimensions to what you actually need — roughly 1600 px wide for web or email is plenty. Most phone photos drop from several megabytes to a few hundred kilobytes with no visible difference. Compare the before-and-after file size and pick the smallest that still looks good."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it safe to compress photos on a free online tool?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the tool. Many free compressors upload your photos to their servers, where the files may be stored or processed. A safer approach is a tool that runs entirely in your browser using the built-in canvas, so the images never leave your device — that keeps personal or work photos private and works even offline."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">
+      <span class="logo">🗜️</span>
+      <div>
+        <strong>Practical Guides</strong>
+        <span class="tag">Clear, no-fluff references</span>
+      </div>
+    </a>
+    <nav class="crumbs"><a href="../index.html">← All free tools</a></nav>
+  </header>
+
+  <main class="wrap">
+    <h1>How to compress images for email without losing quality</h1>
+    <p class="lead">You attach a few photos from your phone, hit send, and the message bounces:
+      <em>“attachment too large.”</em> Modern cameras produce 4–12 MB files, and just two or three
+      blow past an email's size limit. The fix isn't to crop or screenshot — it's to compress, which
+      shrinks the file while keeping the picture looking the same. Here's why it happens, the settings
+      that matter, and a free way to do it privately. Want to skip ahead? Drop your photos into the free
+      <a href="../image-compressor/index.html">image compressor &amp; resizer</a> (runs in your browser,
+      nothing uploaded) and download smaller files in seconds.</p>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Why your photos won't send</h2>
+      <p>Email providers cap how much a single message can carry. The common limits:</p>
+      <ul>
+        <li><strong>Gmail:</strong> ~25 MB per email (all attachments combined).</li>
+        <li><strong>Outlook.com:</strong> ~20 MB.</li>
+        <li><strong>Many work/corporate servers:</strong> 10 MB or even less.</li>
+      </ul>
+      <p class="muted" style="font-size:.92rem;">Two catches make it worse than it sounds. First, the
+        limit covers the <em>whole</em> message, so three 9 MB photos already exceed Gmail's cap.
+        Second, attachments are re-encoded for transit and grow roughly 33%, so a 20 MB folder of files
+        can hit the wall at 25 MB. Aiming for <strong>under 10 MB total</strong> keeps you safely clear
+        and makes the email download fast for whoever receives it.</p>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">The two levers that shrink a photo</h2>
+      <p>You don't need editing skills — just two settings, and they do almost all the work:</p>
+      <ul>
+        <li><strong>Quality (compression).</strong> JPEG and WebP throw away detail the eye barely
+          notices. Dropping from maximum to about <strong>0.8 quality</strong> typically cuts the file
+          size by half or more with no visible change. Going much below ~0.6 is where softness and
+          blocky artifacts start to show.</li>
+        <li><strong>Dimensions (resize).</strong> A 12-megapixel phone photo is ~4000 px wide — far more
+          than any screen or inbox needs. Resizing the longest edge to about <strong>1600 px</strong>
+          (or 1024 px for quick previews) is the single biggest saving, because file size scales with
+          the <em>number of pixels</em>, not just the quality.</li>
+      </ul>
+      <p>Combine both and a 6 MB photo routinely becomes 200–400 KB — small enough to attach a dozen at
+        once. The fastest way to find the sweet spot is to change one setting at a time in the
+        <a href="../image-compressor/index.html">image compressor</a> and watch the before/after size
+        update for each file.</p>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Which format should you choose?</h2>
+      <ul>
+        <li><strong>JPEG</strong> — the safe default for photographs. Universally supported and small;
+          ideal when the image is a photo of people, places or products.</li>
+        <li><strong>WebP</strong> — modern format that's noticeably smaller than JPEG at the same
+          quality. Great for web use and supported by every current browser and email client; pick this
+          when you want the absolute smallest file.</li>
+        <li><strong>PNG</strong> — lossless, and the right choice for screenshots, logos and graphics
+          with sharp text or transparency. It does <em>not</em> shrink with the quality slider, so for
+          PNGs the resize lever is what reduces the size.</li>
+      </ul>
+      <p class="muted" style="font-size:.92rem;">Rule of thumb: photo → JPEG (or WebP for the smallest
+        file); screenshot or logo → PNG.</p>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">A quick recipe by use case</h2>
+      <ul>
+        <li><strong>Emailing a few photos:</strong> JPEG, quality 0.8, max width 1600 px. Keep the whole
+          batch under ~10 MB.</li>
+        <li><strong>Posting to a website or blog:</strong> WebP, quality 0.8, max width 1600–2000 px for
+          fast page loads and better SEO.</li>
+        <li><strong>Marketplace / classified listing:</strong> JPEG, quality 0.8, max width 1200 px —
+          plenty of detail, uploads instantly.</li>
+        <li><strong>Sharing a screenshot:</strong> PNG, resize to the width you need; no quality loss.</li>
+      </ul>
+      <p>Run your images now: <a href="../image-compressor/index.html">open the image compressor &amp;
+        resizer →</a> Drop in JPG, PNG or WebP files, set the quality and max width, and download smaller
+        images — all in your browser, with nothing sent anywhere.</p>
+    </section>
+
+    <section class="card">
+      <h2 style="margin-top:0;">Keep it private</h2>
+      <p>Most "free" online compressors upload your photos to a server to do the work, which means
+        personal or work images leave your device and may be stored. If the pictures are sensitive —
+        documents, ID photos, client work — that matters. A browser-based tool re-encodes images locally
+        using the built-in canvas, so <strong>nothing is uploaded</strong>; it even works with your
+        Wi-Fi off. The <a href="../image-compressor/index.html">image compressor</a> here works exactly
+        this way.</p>
+    </section>
+
+    <p class="muted" style="font-size:.85rem;">Attachment limits and format support change over time and
+      vary by provider; the figures above are typical defaults. When in doubt, send yourself a test email
+      first or share a link instead of attaching very large originals.</p>
+  </main>
+
+  <footer class="sitefoot">
+    <a href="../index.html">All free tools</a> ·
+    <a href="../image-compressor/index.html">Image compressor &amp; resizer</a> ·
+    <a href="../index.html">More guides</a>
+  </footer>
+</body>
+</html>
