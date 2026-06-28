@@ -25,7 +25,8 @@ Plus free SEO [guides](projects/guides/) and a sellable
 
 ```
 projects/            ← the deployed static site (this is what GitHub Pages serves)
-  assets/            ← shared site.css, support.js (monetization rail), site-config.js
+  assets/            ← shared site.css, support.js (monetization rail), site-config.js,
+                       favicon.svg + og-image.png (1200×630 social-share card)
   <tool>/            ← each tool: index.html, app.js, config.js, README.md
   guides/            ← evergreen SEO content pages
 products/            ← source content for sellable digital products
