@@ -856,3 +856,79 @@ password-generator; "json formatting & common errors / how to fix invalid JSON" 
 json-formatter), wired into `sitemap.xml` + `index.html` + the related tool, each
 with Article + FAQPage JSON-LD. Do **not** add another tool — the product is
 complete; the constraint is traffic, not features.
+
+---
+
+## Day 14 — 2026-06-28 — Social-share layer: branded OG image + favicon + OG/Twitter tags everywhere
+
+**Where things stand (verified this run via the GitHub API).** The site is **live,
+green and monetized.** Remote `main` was at `071fe1e` (Day 13 log); the last
+code-bearing deploy (`55b946b`) was **completed success**; all 7 tools + 5 guides +
+link-in-bio + the Get-Paid Playbook funnel are serving. The **Buy Me a Coffee tip
+jar (`khorlipminz`) is live** on every tool via `projects/assets/site-config.js`.
+No regressions. Standing permission to publish to `main` (Day 10) is in effect, so
+this run self-published.
+
+**Honest money position:** $0 actually received — and that's correct. The tip rail
+and funnel are switched ON; tips/affiliate income only arrive once real visitors
+land. The two final, non-automatable steps remain the owner's: (1) drive traffic by
+posting the links, and (2) the payout account tied to your verified identity. No
+revenue is claimed before it exists.
+
+**Why today's work (not another guide).** The product is complete and the prior
+logs correctly identified the bottleneck as *traffic, not features*. So this run
+attacked the highest-leverage **automatable** amplifier of any future distribution:
+until now **every shared link rendered a blank preview**. When you (or anyone) post
+a tool link to Reddit, WhatsApp, X, LinkedIn, Slack or iMessage, a rich card with a
+branded image roughly 2–3× the click-through versus a bare URL. That gap had sat
+unaddressed for 13 days. Fixing it converts the owner's distribution effort into
+materially more clicks — worth far more than a 6th unread guide.
+
+**What shipped today** (branch `claude/zen-gauss-5ha0d4`, built on live `main`)
+- **Branded social-share card** `projects/assets/og-image.png` (1200×630, on-brand
+  dark-teal, shows all 6 tools). Rendered from an HTML template via the pre-installed
+  **headless Chromium** `--screenshot` — no npm install, no dependency, **zero cost**.
+- **Favicon** `projects/assets/favicon.svg` (SVG wrench mark; crisp at 16/32 px;
+  supported by all modern browsers) — fixes the blank browser-tab/bookmark icon, a
+  small but real "world-class polish / sellable asset" signal.
+- **Full social-share + favicon meta set on all 14 pages** (7 tools + playbook +
+  linkinbio + 5 guides + homepage): `og:image`, `og:url`, `og:site_name`,
+  `twitter:card=summary_large_image`, `twitter:{title,description,image}`, favicon
+  link. **Backfilled** `og:title/description/type` + `canonical` on the homepage and
+  the social-content-templates page (had none), and the missing `canonical` on
+  invoicelite. Idempotent inject — every page now has **exactly one** of each tag.
+- **README:** noted the new shared assets.
+
+**Repo review / YAGNI:** lean — no TODO/FIXME, no stray `console.log`, no dead code,
+all guides in `sitemap.xml`, `products/` clean, `robots.txt` points at the sitemap.
+One site-wide OG image (not 14 per-page images) is the deliberate YAGNI choice: it
+fixes 100% of blank previews with one 116 KB asset and nothing to maintain.
+
+**Verified green:** **71/71** unit assertions; `node --check` clean on all JS;
+**17/17** JSON-LD blocks parse; `favicon.svg` valid; per-page tag audit = exactly 1
+each of og:image/twitter:card/canonical/favicon/og:title across all 14 pages.
+Published by fast-forwarding `main` `071fe1e → 761541b`; Pages deploy triggered.
+
+**👉 The only thing between this and real money is TRAFFIC (owner, your move):**
+1. **Submit the sitemap** to Google Search Console (free, 5 min) so the tools +
+   5 guides + FAQ/Article rich results get indexed.
+2. **Distribute** — and now every shared link shows a rich branded card: post the
+   live links where the audience asks (r/personalfinance → loan calc; r/freelance →
+   InvoiceLite; r/webdev → JSON formatter; r/email/r/gmail → image compressor),
+   and/or publish the ready-made bilingual posts at
+   `/guides/social-content-templates.html`. Tip: paste a link into
+   https://www.opengraph.xyz to preview the new card before posting.
+3. *(Optional, higher $/visit)* add affiliate referral URLs to each tool's
+   `config.js`; *(optional)* sell the Get-Paid Playbook via a free Gumroad `buyUrl`.
+
+**Next run (Day 15) — START HERE:** re-verify the deploy is green and the site is
+live; confirm the OG card renders (opengraph.xyz / Twitter card validator) and the
+favicon shows. Check whether the sitemap was submitted / any affiliate or `buyUrl`
+got filled. If still nothing on traffic, the next highest-value automatable lever is
+**one focused conversion/SEO win** — candidates: (a) a short, genuinely useful SEO
+guide funneling to the still-under-served password-generator ("how long should a
+password be / passphrase vs password") or json-formatter ("how to fix invalid
+JSON"), each with Article + FAQPage JSON-LD and wired into sitemap + homepage; or
+(b) tighten on-page conversion (clear CTA above the fold on the highest-value tool
+pages). Do **not** add another tool — the product is complete; the constraint is
+traffic, not features.
